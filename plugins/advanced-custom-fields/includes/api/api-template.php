@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /*
 *  get_field()
@@ -16,50 +16,49 @@
 *  @param	$format_value (boolean) whether or not to format the value as described above
 *  @return	(mixed)
 */
-
-function get_field($selector, $post_id = false, $format_value = true)
-{
-
-    // filter post_id
-    $post_id = acf_get_valid_post_id($post_id);
-
-
-    // get field
-    $field = acf_maybe_get_field($selector, $post_id);
-
-
-    // create dummy field
-    if (!$field) {
-
-        $field = acf_get_valid_field(array(
-            'name' => $selector,
-            'key' => '',
-            'type' => '',
-        ));
-
-
-        // prevent formatting
-        $format_value = false;
-
-    }
-
-
-    // get value for field
-    $value = acf_get_value($post_id, $field);
-
-
-    // format value
-    if ($format_value) {
-
-        // get value for field
-        $value = acf_format_value($value, $post_id, $field);
-
-    }
-
-
-    // return
-    return $value;
-
+ 
+function get_field( $selector, $post_id = false, $format_value = true ) {
+	
+	// filter post_id
+	$post_id = acf_get_valid_post_id( $post_id );
+	
+	
+	// get field
+	$field = acf_maybe_get_field( $selector, $post_id );
+	
+	
+	// create dummy field
+	if( !$field ) {
+		
+		$field = acf_get_valid_field(array(
+			'name'	=> $selector,
+			'key'	=> '',
+			'type'	=> '',
+		));
+		
+		
+		// prevent formatting
+		$format_value = false;
+		
+	}
+	
+	
+	// get value for field
+	$value = acf_get_value( $post_id, $field );
+	
+	
+	// format value
+	if( $format_value ) {
+		
+		// get value for field
+		$value = acf_format_value( $value, $post_id, $field );
+		
+	}
+	
+	
+	// return
+	return $value;
+	 
 }
 
 
@@ -77,19 +76,18 @@ function get_field($selector, $post_id = false, $format_value = true)
 *  @return	n/a
 */
 
-function the_field($selector, $post_id = false, $format_value = true)
-{
-
-    $value = get_field($selector, $post_id, $format_value);
-
-    if (is_array($value)) {
-
-        $value = @implode(', ', $value);
-
-    }
-
-    echo $value;
-
+function the_field( $selector, $post_id = false, $format_value = true ) {
+	
+	$value = get_field($selector, $post_id, $format_value);
+	
+	if( is_array($value) ) {
+		
+		$value = @implode( ', ', $value );
+		
+	}
+	
+	echo $value;
+	
 }
 
 
@@ -109,45 +107,44 @@ function the_field($selector, $post_id = false, $format_value = true)
 *  @return	$field (array)
 */
 
-function get_field_object($selector, $post_id = false, $format_value = true, $load_value = true)
-{
-
-    // compatibilty
-    if (is_array($format_value)) extract($format_value);
-
-
-    // get valid post_id
-    $post_id = acf_get_valid_post_id($post_id);
-
-
-    // get field key
-    $field = acf_maybe_get_field($selector, $post_id);
-
-
-    // bail early if no field found
-    if (!$field) return false;
-
-
-    // load value
-    if ($load_value) {
-
-        $field['value'] = acf_get_value($post_id, $field);
-
-    }
-
-
-    // format value
-    if ($format_value) {
-
-        // get value for field
-        $field['value'] = acf_format_value($field['value'], $post_id, $field);
-
-    }
-
-
-    // return
-    return $field;
-
+function get_field_object( $selector, $post_id = false, $format_value = true, $load_value = true ) {
+	
+	// compatibilty
+	if( is_array($format_value) ) extract( $format_value );
+	
+	
+	// get valid post_id
+	$post_id = acf_get_valid_post_id( $post_id );
+	
+	
+	// get field key
+	$field = acf_maybe_get_field( $selector, $post_id );
+	
+	
+	// bail early if no field found
+	if( !$field ) return false;
+	
+	
+	// load value
+	if( $load_value ) {
+	
+		$field['value'] = acf_get_value( $post_id, $field );
+		
+	}
+	
+	
+	// format value
+	if( $format_value ) {
+		
+		// get value for field
+		$field['value'] = acf_format_value( $field['value'], $post_id, $field );
+		
+	}
+	
+	
+	// return
+	return $field;
+	
 }
 
 /*
@@ -165,31 +162,30 @@ function get_field_object($selector, $post_id = false, $format_value = true, $lo
 *  @param	$strict (boolean) if true, return a field only when a field key is found.
 *  @return	$field (array)
 */
-function acf_maybe_get_field($selector, $post_id = false, $strict = true)
-{
-
-    // init
-    acf_init();
-
-    // Check if field key was given.
-    if (acf_is_field_key($selector)) {
-        return acf_get_field($selector);
-    }
-
-    // Lookup field via reference.
-    $post_id = acf_get_valid_post_id($post_id);
-    $field = acf_get_meta_field($selector, $post_id);
-    if ($field) {
-        return $field;
-    }
-
-    // Lookup field loosely via name.
-    if (!$strict) {
-        return acf_get_field($selector);
-    }
-
-    // Return no result.
-    return false;
+function acf_maybe_get_field( $selector, $post_id = false, $strict = true ) {
+	
+	// init
+	acf_init();
+	
+	// Check if field key was given.
+	if( acf_is_field_key($selector) ) {
+		return acf_get_field( $selector );
+	}
+	
+	// Lookup field via reference.
+	$post_id = acf_get_valid_post_id( $post_id );
+	$field = acf_get_meta_field( $selector, $post_id );
+	if( $field ) {
+		return $field;
+	}
+	
+	// Lookup field loosely via name.
+	if( !$strict ) {
+		return acf_get_field( $selector );	
+	}
+	
+	// Return no result.
+	return false;
 }
 
 /*
@@ -205,52 +201,51 @@ function acf_maybe_get_field($selector, $post_id = false, $strict = true)
 *  @return	$post_id (int)
 */
 
-function acf_maybe_get_sub_field($selectors, $post_id = false, $strict = true)
-{
-
-    // bail ealry if not enough selectors
-    if (!is_array($selectors) || count($selectors) < 3) return false;
-
-
-    // vars
-    $offset = acf_get_setting('row_index_offset');
-    $selector = acf_extract_var($selectors, 0);
-    $selectors = array_values($selectors); // reset keys
-
-
-    // attempt get field
-    $field = acf_maybe_get_field($selector, $post_id, $strict);
-
-
-    // bail early if no field
-    if (!$field) return false;
-
-
-    // loop
-    for ($j = 0; $j < count($selectors); $j += 2) {
-
-        // vars
-        $sub_i = $selectors[$j];
-        $sub_s = $selectors[$j + 1];
-        $field_name = $field['name'];
-
-
-        // find sub field
-        $field = acf_get_sub_field($sub_s, $field);
-
-
-        // bail early if no sub field
-        if (!$field) return false;
-
-
-        // add to name
-        $field['name'] = $field_name . '_' . ($sub_i - $offset) . '_' . $field['name'];
-
-    }
-
-
-    // return
-    return $field;
+function acf_maybe_get_sub_field( $selectors, $post_id = false, $strict = true ) {
+	
+	// bail ealry if not enough selectors
+	if( !is_array($selectors) || count($selectors) < 3 ) return false;
+	
+	
+	// vars
+	$offset = acf_get_setting('row_index_offset');
+	$selector = acf_extract_var( $selectors, 0 );
+	$selectors = array_values( $selectors ); // reset keys
+	
+	
+	// attempt get field
+	$field = acf_maybe_get_field( $selector, $post_id, $strict );
+	
+	
+	// bail early if no field
+	if( !$field ) return false;
+	
+	
+	// loop
+	for( $j = 0; $j < count($selectors); $j+=2 ) {
+		
+		// vars
+		$sub_i = $selectors[ $j ];
+		$sub_s = $selectors[ $j+1 ];
+		$field_name = $field['name'];
+		
+		
+		// find sub field
+		$field = acf_get_sub_field( $sub_s, $field );
+		
+		
+		// bail early if no sub field
+		if( !$field ) return false;
+					
+		
+		// add to name
+		$field['name'] = $field_name . '_' . ($sub_i-$offset) . '_' . $field['name'];
+		
+	}
+	
+	
+	// return
+	return $field;
 }
 
 /*
@@ -268,29 +263,28 @@ function acf_maybe_get_sub_field($selectors, $post_id = false, $strict = true)
 *  @return	(array)	associative array where field name => field value
 */
 
-function get_fields($post_id = false, $format_value = true)
-{
-
-    // vars
-    $fields = get_field_objects($post_id, $format_value);
-    $meta = array();
-
-
-    // bail early
-    if (!$fields) return false;
-
-
-    // populate
-    foreach ($fields as $k => $field) {
-
-        $meta[$k] = $field['value'];
-
-    }
-
-
-    // return
-    return $meta;
-
+function get_fields( $post_id = false, $format_value = true ) {
+	
+	// vars
+	$fields = get_field_objects( $post_id, $format_value );
+	$meta = array();
+	
+	
+	// bail early
+	if( !$fields ) return false;
+	
+	
+	// populate
+	foreach( $fields as $k => $field ) {
+		
+		$meta[ $k ] = $field['value'];
+		
+	}
+	
+	
+	// return
+	return $meta;	
+	
 }
 
 
@@ -310,54 +304,53 @@ function get_fields($post_id = false, $format_value = true)
 *  @return	(array)	associative array where field name => field
 */
 
-function get_field_objects($post_id = false, $format_value = true, $load_value = true)
-{
-
-    // init
-    acf_init();
-
-    // validate post_id
-    $post_id = acf_get_valid_post_id($post_id);
-
-    // get meta
-    $meta = acf_get_meta($post_id);
-
-    // bail early if no meta
-    if (empty($meta)) return false;
-
-    // populate vars
-    $fields = array();
-    foreach ($meta as $key => $value) {
-
-        // bail if reference key does not exist
-        if (!isset($meta["_$key"])) continue;
-
-        // get field
-        $field = acf_get_field($meta["_$key"]);
-
-        // bail early if no field, or if the field's name is different to $key
-        // - solves problem where sub fields (and clone fields) are incorrectly allowed
-        if (!$field || $field['name'] !== $key) continue;
-
-        // load value
-        if ($load_value) {
-            $field['value'] = acf_get_value($post_id, $field);
-        }
-
-        // format value
-        if ($format_value) {
-            $field['value'] = acf_format_value($field['value'], $post_id, $field);
-        }
-
-        // append to $value
-        $fields[$key] = $field;
-    }
-
-    // no value
-    if (empty($fields)) return false;
-
-    // return
-    return $fields;
+function get_field_objects( $post_id = false, $format_value = true, $load_value = true ) {
+	
+	// init
+	acf_init();
+	
+	// validate post_id
+	$post_id = acf_get_valid_post_id( $post_id );
+	
+	// get meta
+	$meta = acf_get_meta( $post_id );
+	
+	// bail early if no meta
+	if( empty($meta) ) return false;
+	
+	// populate vars
+	$fields = array();
+	foreach( $meta as $key => $value ) {
+		
+		// bail if reference key does not exist
+		if( !isset($meta["_$key"]) ) continue;
+		
+		// get field
+		$field = acf_get_field($meta["_$key"]);
+		
+		// bail early if no field, or if the field's name is different to $key
+		// - solves problem where sub fields (and clone fields) are incorrectly allowed
+		if( !$field || $field['name'] !== $key ) continue;
+		
+		// load value
+		if( $load_value ) {
+			$field['value'] = acf_get_value( $post_id, $field );
+		}
+		
+		// format value
+		if( $format_value ) {
+			$field['value'] = acf_format_value( $field['value'], $post_id, $field );
+		}
+		
+		// append to $value
+		$fields[ $key ] = $field;
+	}
+ 	
+	// no value
+	if( empty($fields) ) return false;
+	
+	// return
+	return $fields;
 }
 
 
@@ -367,135 +360,134 @@ function get_field_objects($post_id = false, $format_value = true, $load_value =
  * Checks if a field (such as Repeater or Flexible Content) has any rows of data to loop over.
  * This function is intended to be used in conjunction with the_row() to step through available values.
  *
- * @date    2/09/13
- * @param string $selector The field name or field key.
- * @param mixed $post_id The post ID where the value is saved. Defaults to the current post.
- * @return    bool
- * @since    4.3.0
+ * @date	2/09/13
+ * @since	4.3.0
  *
+ * @param	string $selector The field name or field key.
+ * @param	mixed $post_id The post ID where the value is saved. Defaults to the current post.
+ * @return	bool
  */
-function have_rows($selector, $post_id = false)
-{
-
-    // Validate and backup $post_id.
-    $_post_id = $post_id;
-    $post_id = acf_get_valid_post_id($post_id);
-
-    // Vars.
-    $key = "selector={$selector}/post_id={$post_id}";
-    $active_loop = acf_get_loop('active');
-    $prev_loop = acf_get_loop('previous');
-    $new_loop = false;
-    $sub_field = false;
-
-    // Check if no active loop.
-    if (!$active_loop) {
-        $new_loop = 'parent';
-
-        // Detect "change" compared to the active loop.
-    } elseif ($key !== $active_loop['key']) {
-
-        // Find sub field and check if a sub value exists.
-        $sub_field_exists = false;
-        $sub_field = acf_get_sub_field($selector, $active_loop['field']);
-        if ($sub_field) {
-            $sub_field_exists = isset($active_loop['value'][$active_loop['i']][$sub_field['key']]);
-        }
-
-        // Detect change in post_id.
-        if ($post_id != $active_loop['post_id']) {
-
-            // Case: Change in $post_id was due to this being a nested loop and not specifying the $post_id.
-            // Action: Move down one level into a new loop.
-            if (empty($_post_id) && $sub_field_exists) {
-                $new_loop = 'child';
-
-                // Case: Change in $post_id was due to a nested loop ending.
-                // Action: move up one level through the loops.
-            } elseif ($prev_loop && $prev_loop['post_id'] == $post_id) {
-                acf_remove_loop('active');
-                $active_loop = $prev_loop;
-
-                // Case: Chang in $post_id is the most obvious, used in an WP_Query loop with multiple $post objects.
-                // Action: leave this current loop alone and create a new parent loop.
-            } else {
-                $new_loop = 'parent';
-            }
-
-            // Detect change in selector.
-        } elseif ($selector != $active_loop['selector']) {
-
-            // Case: Change in $field_name was due to this being a nested loop.
-            // Action: move down one level into a new loop.
-            if ($sub_field_exists) {
-                $new_loop = 'child';
-
-                // Case: Change in $field_name was due to a nested loop ending.
-                // Action: move up one level through the loops.
-            } elseif ($prev_loop && $prev_loop['selector'] == $selector && $prev_loop['post_id'] == $post_id) {
-                acf_remove_loop('active');
-                $active_loop = $prev_loop;
-
-                // Case: Change in $field_name is the most obvious, this is a new loop for a different field within the $post.
-                // Action: leave this current loop alone and create a new parent loop.
-            } else {
-                $new_loop = 'parent';
-            }
-        }
-    }
-
-    // Add loop if required.
-    if ($new_loop) {
-        $args = array(
-            'key' => $key,
-            'selector' => $selector,
-            'post_id' => $post_id,
-            'name' => null,
-            'value' => null,
-            'field' => null,
-            'i' => -1,
-        );
-
-        // Case: Parent loop.
-        if ($new_loop === 'parent') {
-            $field = get_field_object($selector, $post_id, false);
-            if ($field) {
-                $args['field'] = $field;
-                $args['value'] = $field['value'];
-                $args['name'] = $field['name'];
-                unset($args['field']['value']);
-            }
-
-            // Case: Child loop ($sub_field must exist).
-        } else {
-            $args['field'] = $sub_field;
-            $args['value'] = $active_loop['value'][$active_loop['i']][$sub_field['key']];
-            $args['name'] = "{$active_loop['name']}_{$active_loop['i']}_{$sub_field['name']}";
-            $args['post_id'] = $active_loop['post_id'];
-        }
-
-        // Bail early if value is either empty or a non array.
-        if (!$args['value'] || !is_array($args['value'])) {
-            return false;
-        }
-
-        // Allow for non repeatable data for Group and Clone fields.
-        if (acf_get_field_type_prop($args['field']['type'], 'have_rows') === 'single') {
-            $args['value'] = array($args['value']);
-        }
-
-        // Add loop.
-        $active_loop = acf_add_loop($args);
-    }
-
-    // Return true if next row exists.
-    if ($active_loop && isset($active_loop['value'][$active_loop['i'] + 1])) {
-        return true;
-    }
-
-    // Return false if no next row.
-    acf_remove_loop('active');
-    return false;
+function have_rows( $selector, $post_id = false ) {
+	
+	// Validate and backup $post_id.
+	$_post_id = $post_id;
+	$post_id = acf_get_valid_post_id( $post_id );
+	
+	// Vars.
+	$key = "selector={$selector}/post_id={$post_id}";
+	$active_loop = acf_get_loop('active');
+	$prev_loop = acf_get_loop('previous');
+	$new_loop = false;
+	$sub_field = false;
+	
+	// Check if no active loop.
+	if( !$active_loop ) {
+		$new_loop = 'parent';
+	
+	// Detect "change" compared to the active loop.
+	} elseif( $key !== $active_loop['key'] ) {
+		
+		// Find sub field and check if a sub value exists.
+		$sub_field_exists = false;
+		$sub_field = acf_get_sub_field($selector, $active_loop['field']);
+		if( $sub_field ) {
+			$sub_field_exists = isset( $active_loop['value'][ $active_loop['i'] ][ $sub_field['key'] ] );
+		}
+		
+		// Detect change in post_id.
+		if( $post_id != $active_loop['post_id'] ) {
+			
+			// Case: Change in $post_id was due to this being a nested loop and not specifying the $post_id.
+			// Action: Move down one level into a new loop.
+			if( empty($_post_id) && $sub_field_exists ) {
+				$new_loop = 'child';
+			
+			// Case: Change in $post_id was due to a nested loop ending.
+			// Action: move up one level through the loops.
+			} elseif( $prev_loop && $prev_loop['post_id'] == $post_id ) {
+				acf_remove_loop('active');
+				$active_loop = $prev_loop;
+			
+			// Case: Chang in $post_id is the most obvious, used in an WP_Query loop with multiple $post objects.
+			// Action: leave this current loop alone and create a new parent loop.
+			} else {
+				$new_loop = 'parent';
+			}
+		
+		// Detect change in selector.
+		} elseif( $selector != $active_loop['selector'] ) {
+			
+			// Case: Change in $field_name was due to this being a nested loop.
+			// Action: move down one level into a new loop.
+			if( $sub_field_exists ) {
+				$new_loop = 'child';
+			
+			// Case: Change in $field_name was due to a nested loop ending.
+			// Action: move up one level through the loops.
+			} elseif( $prev_loop && $prev_loop['selector'] == $selector && $prev_loop['post_id'] == $post_id ) {
+				acf_remove_loop('active');
+				$active_loop = $prev_loop;
+			
+			// Case: Change in $field_name is the most obvious, this is a new loop for a different field within the $post.
+			// Action: leave this current loop alone and create a new parent loop.
+			} else {
+				$new_loop = 'parent';
+			}
+		}
+	}
+	
+	// Add loop if required.
+	if( $new_loop ) {
+		$args = array(
+			'key'		=> $key,
+			'selector'	=> $selector,
+			'post_id'	=> $post_id,
+			'name'		=> null,
+			'value'		=> null,
+			'field'		=> null,
+			'i'			=> -1,
+		);
+		
+		// Case: Parent loop.
+		if( $new_loop === 'parent' ) {
+			$field = get_field_object( $selector, $post_id, false );
+			if( $field ) {
+				$args['field'] = $field;
+				$args['value'] = $field['value'];
+				$args['name'] = $field['name'];
+				unset( $args['field']['value'] );
+			}
+			
+		// Case: Child loop ($sub_field must exist).
+		} else {
+			$args['field'] = $sub_field;
+			$args['value'] = $active_loop['value'][ $active_loop['i'] ][ $sub_field['key'] ];
+			$args['name'] = "{$active_loop['name']}_{$active_loop['i']}_{$sub_field['name']}";
+			$args['post_id'] = $active_loop['post_id'];
+		}
+		
+		// Bail early if value is either empty or a non array.
+		if( !$args['value'] || !is_array($args['value']) ) {
+			return false;
+		}
+		
+		// Allow for non repeatable data for Group and Clone fields.
+		if( acf_get_field_type_prop($args['field']['type'], 'have_rows') === 'single' ) {
+			$args['value'] = array( $args['value'] );
+		}
+		
+		// Add loop.
+		$active_loop = acf_add_loop($args);
+	}
+	
+	// Return true if next row exists.
+	if( $active_loop && isset($active_loop['value'][ $active_loop['i']+1 ]) ) {
+		return true;
+	}	
+	
+	// Return false if no next row.
+	acf_remove_loop('active');
+	return false;
 }
 
 
@@ -512,96 +504,92 @@ function have_rows($selector, $post_id = false)
 *  @return	(array) the current row data
 */
 
-function the_row($format = false)
-{
-
-    // vars
-    $i = acf_get_loop('active', 'i');
-
-
-    // increase
-    $i++;
-
-
-    // update
-    acf_update_loop('active', 'i', $i);
-
-
-    // return
-    return get_row($format);
-
+function the_row( $format = false ) {
+	
+	// vars
+	$i = acf_get_loop('active', 'i');
+	
+	
+	// increase
+	$i++;
+	
+	
+	// update
+	acf_update_loop('active', 'i', $i);
+	
+	
+	// return
+	return get_row( $format );
+	
 }
 
-function get_row($format = false)
-{
-
-    // vars
-    $loop = acf_get_loop('active');
-
-
-    // bail early if no loop
-    if (!$loop) return false;
-
-
-    // get value
-    $value = acf_maybe_get($loop['value'], $loop['i']);
-
-
-    // bail early if no current value
-    // possible if get_row_layout() is called before the_row()
-    if (!$value) return false;
-
-
-    // format
-    if ($format) {
-
-        // vars
-        $field = $loop['field'];
-
-
-        // single row
-        if (acf_get_field_type_prop($field['type'], 'have_rows') === 'single') {
-
-            // format value
-            $value = acf_format_value($value, $loop['post_id'], $field);
-
-            // multiple rows
-        } else {
-
-            // format entire value
-            // - solves problem where cached value is incomplete
-            // - no performance issues here thanks to cache
-            $value = acf_format_value($loop['value'], $loop['post_id'], $field);
-            $value = acf_maybe_get($value, $loop['i']);
-
-        }
-
-    }
-
-
-    // return
-    return $value;
-
+function get_row( $format = false ) {
+	
+	// vars
+	$loop = acf_get_loop('active');
+	
+	
+	// bail early if no loop
+	if( !$loop ) return false;
+	
+	
+	// get value
+	$value = acf_maybe_get( $loop['value'], $loop['i'] );
+	
+	
+	// bail early if no current value
+	// possible if get_row_layout() is called before the_row()
+	if( !$value ) return false;
+	
+	
+	// format
+	if( $format ) {
+		
+		// vars
+		$field = $loop['field'];
+		
+		
+		// single row
+		if( acf_get_field_type_prop($field['type'], 'have_rows') === 'single' ) {
+			
+			// format value
+			$value = acf_format_value( $value, $loop['post_id'], $field );
+		
+		// multiple rows
+		} else {
+			
+			// format entire value
+			// - solves problem where cached value is incomplete
+			// - no performance issues here thanks to cache
+			$value = acf_format_value( $loop['value'], $loop['post_id'], $field );
+			$value = acf_maybe_get( $value, $loop['i'] );
+			
+		}
+		
+	}
+	
+	
+	// return
+	return $value;
+	
 }
 
-function get_row_index()
-{
-
-    // vars
-    $i = acf_get_loop('active', 'i');
-    $offset = acf_get_setting('row_index_offset');
-
-
-    // return
-    return $offset + $i;
-
+function get_row_index() {
+	
+	// vars
+	$i = acf_get_loop('active', 'i');
+	$offset = acf_get_setting('row_index_offset');
+	
+	
+	// return
+	return $offset + $i;
+	
 }
 
-function the_row_index()
-{
-
-    echo get_row_index();
-
+function the_row_index() {
+	
+	echo get_row_index();
+	
 }
 
 
@@ -618,32 +606,31 @@ function the_row_index()
 *  @return	(array)
 */
 
-function get_row_sub_field($selector)
-{
-
-    // vars
-    $row = acf_get_loop('active');
-
-
-    // bail early if no row
-    if (!$row) return false;
-
-
-    // attempt to find sub field
-    $sub_field = acf_get_sub_field($selector, $row['field']);
-
-
-    // bail early if no field
-    if (!$sub_field) return false;
-
-
-    // update field's name based on row data
-    $sub_field['name'] = "{$row['name']}_{$row['i']}_{$sub_field['name']}";
-
-
-    // return
-    return $sub_field;
-
+function get_row_sub_field( $selector ) {
+	
+	// vars
+	$row = acf_get_loop('active');
+	
+	
+	// bail early if no row
+	if( !$row ) return false;
+	
+	
+	// attempt to find sub field
+	$sub_field = acf_get_sub_field($selector, $row['field']);
+	
+	
+	// bail early if no field
+	if( !$sub_field ) return false;
+	
+	
+	// update field's name based on row data
+	$sub_field['name'] = "{$row['name']}_{$row['i']}_{$sub_field['name']}";
+	
+	
+	// return
+	return $sub_field;
+	
 }
 
 
@@ -660,28 +647,27 @@ function get_row_sub_field($selector)
 *  @return	(mixed)
 */
 
-function get_row_sub_value($selector)
-{
-
-    // vars
-    $row = acf_get_loop('active');
-
-
-    // bail early if no row
-    if (!$row) return null;
-
-
-    // return value
-    if (isset($row['value'][$row['i']][$selector])) {
-
-        return $row['value'][$row['i']][$selector];
-
-    }
-
-
-    // return
-    return null;
-
+function get_row_sub_value( $selector ) {
+	
+	// vars
+	$row = acf_get_loop('active');
+	
+	
+	// bail early if no row
+	if( !$row ) return null;
+	
+	
+	// return value
+	if( isset($row['value'][ $row['i'] ][ $selector ]) ) {
+		
+		return $row['value'][ $row['i'] ][ $selector ];
+		
+	}
+	
+	
+	// return
+	return null;
+	
 }
 
 
@@ -699,16 +685,15 @@ function get_row_sub_value($selector)
 *  @return	(boolean)
 */
 
-function reset_rows()
-{
-
-    // remove last loop
-    acf_remove_loop('active');
-
-
-    // return
-    return true;
-
+function reset_rows() {
+	
+	// remove last loop
+	acf_remove_loop('active');
+	
+	
+	// return
+	return true;
+	
 }
 
 
@@ -728,31 +713,29 @@ function reset_rows()
 *  @return	(boolean)
 */
 
-function has_sub_field($field_name, $post_id = false)
-{
-
-    // vars
-    $r = have_rows($field_name, $post_id);
-
-
-    // if has rows, progress through 1 row for the while loop to work
-    if ($r) {
-
-        the_row();
-
-    }
-
-
-    // return
-    return $r;
-
+function has_sub_field( $field_name, $post_id = false ) {
+	
+	// vars
+	$r = have_rows( $field_name, $post_id );
+	
+	
+	// if has rows, progress through 1 row for the while loop to work
+	if( $r ) {
+		
+		the_row();
+		
+	}
+	
+	
+	// return
+	return $r;
+	
 }
 
-function has_sub_fields($field_name, $post_id = false)
-{
-
-    return has_sub_field($field_name, $post_id);
-
+function has_sub_fields( $field_name, $post_id = false ) {
+	
+	return has_sub_field( $field_name, $post_id );
+	
 }
 
 
@@ -769,20 +752,19 @@ function has_sub_fields($field_name, $post_id = false)
 *  @return	(mixed)
 */
 
-function get_sub_field($selector = '', $format_value = true)
-{
-
-    // get sub field
-    $sub_field = get_sub_field_object($selector, $format_value);
-
-
-    // bail early if no sub field
-    if (!$sub_field) return false;
-
-
-    // return
-    return $sub_field['value'];
-
+function get_sub_field( $selector = '', $format_value = true ) {
+	
+	// get sub field
+	$sub_field = get_sub_field_object( $selector, $format_value );
+	
+	
+	// bail early if no sub field
+	if( !$sub_field ) return false;
+	
+	
+	// return 
+	return $sub_field['value'];
+	
 }
 
 
@@ -799,18 +781,17 @@ function get_sub_field($selector = '', $format_value = true)
 *  @return	n/a
 */
 
-function the_sub_field($field_name, $format_value = true)
-{
-
-    $value = get_sub_field($field_name, $format_value);
-
-    if (is_array($value)) {
-
-        $value = implode(', ', $value);
-
-    }
-
-    echo $value;
+function the_sub_field( $field_name, $format_value = true ) {
+	
+	$value = get_sub_field( $field_name, $format_value );
+	
+	if( is_array($value) ) {
+		
+		$value = implode(', ',$value);
+		
+	}
+	
+	echo $value;
 }
 
 
@@ -827,45 +808,44 @@ function the_sub_field($field_name, $format_value = true)
 *  @return	(array)	
 */
 
-function get_sub_field_object($selector, $format_value = true, $load_value = true)
-{
-
-    // vars
-    $row = acf_get_loop('active');
-
-
-    // bail early if no row
-    if (!$row) return false;
-
-
-    // attempt to find sub field
-    $sub_field = get_row_sub_field($selector);
-
-
-    // bail early if no sub field
-    if (!$sub_field) return false;
-
-
-    // load value
-    if ($load_value) {
-
-        $sub_field['value'] = get_row_sub_value($sub_field['key']);
-
-    }
-
-
-    // format value
-    if ($format_value) {
-
-        // get value for field
-        $sub_field['value'] = acf_format_value($sub_field['value'], $row['post_id'], $sub_field);
-
-    }
-
-
-    // return
-    return $sub_field;
-
+function get_sub_field_object( $selector, $format_value = true, $load_value = true ) {
+	
+	// vars
+	$row = acf_get_loop('active');
+	
+	
+	// bail early if no row
+	if( !$row ) return false;
+	
+	
+	// attempt to find sub field
+	$sub_field = get_row_sub_field($selector);
+	
+	
+	// bail early if no sub field
+	if( !$sub_field ) return false;
+	
+	
+	// load value
+	if( $load_value ) {
+	
+		$sub_field['value'] = get_row_sub_value( $sub_field['key'] );
+		
+	}
+	
+	
+	// format value
+	if( $format_value ) {
+		
+		// get value for field
+		$sub_field['value'] = acf_format_value( $sub_field['value'], $row['post_id'], $sub_field );
+		
+	}
+	
+		
+	// return
+	return $sub_field;
+	
 }
 
 
@@ -882,24 +862,23 @@ function get_sub_field_object($selector, $format_value = true, $load_value = tru
 *  @return	(string)
 */
 
-function get_row_layout()
-{
-
-    // vars
-    $row = get_row();
-
-
-    // return
-    if (isset($row['acf_fc_layout'])) {
-
-        return $row['acf_fc_layout'];
-
-    }
-
-
-    // return
-    return false;
-
+function get_row_layout() {
+	
+	// vars
+	$row = get_row();
+	
+	
+	// return
+	if( isset($row['acf_fc_layout']) ) {
+		
+		return $row['acf_fc_layout'];
+		
+	}
+	
+	
+	// return
+	return false;
+	
 }
 
 
@@ -919,32 +898,31 @@ function get_row_layout()
 *  @return	(string)
 */
 
-function acf_shortcode($atts)
-{
-
-    // extract attributs
-    extract(shortcode_atts(array(
-        'field' => '',
-        'post_id' => false,
-        'format_value' => true
-    ), $atts));
-
-
-    // get value and return it
-    $value = get_field($field, $post_id, $format_value);
-
-
-    // array
-    if (is_array($value)) {
-
-        $value = @implode(', ', $value);
-
-    }
-
-
-    // return
-    return $value;
-
+function acf_shortcode( $atts ) {
+	
+	// extract attributs
+	extract( shortcode_atts( array(
+		'field'			=> '',
+		'post_id'		=> false,
+		'format_value'	=> true
+	), $atts ) );
+	
+	
+	// get value and return it
+	$value = get_field( $field, $post_id, $format_value );
+	
+	
+	// array
+	if( is_array($value) ) {
+		
+		$value = @implode( ', ', $value );
+		
+	}
+	
+	
+	// return
+	return $value;
+	
 }
 
 add_shortcode('acf', 'acf_shortcode');
@@ -965,32 +943,31 @@ add_shortcode('acf', 'acf_shortcode');
 *  @return	(boolean)
 */
 
-function update_field($selector, $value, $post_id = false)
-{
-
-    // filter post_id
-    $post_id = acf_get_valid_post_id($post_id);
-
-
-    // get field
-    $field = acf_maybe_get_field($selector, $post_id, false);
-
-
-    // create dummy field
-    if (!$field) {
-
-        $field = acf_get_valid_field(array(
-            'name' => $selector,
-            'key' => '',
-            'type' => '',
-        ));
-
-    }
-
-
-    // save
-    return acf_update_value($value, $post_id, $field);
-
+function update_field( $selector, $value, $post_id = false ) {
+	
+	// filter post_id
+	$post_id = acf_get_valid_post_id( $post_id );
+	
+	
+	// get field
+	$field = acf_maybe_get_field( $selector, $post_id, false );
+	
+	
+	// create dummy field
+	if( !$field ) {
+		
+		$field = acf_get_valid_field(array(
+			'name'	=> $selector,
+			'key'	=> '',
+			'type'	=> '',
+		));
+		
+	}
+	
+	
+	// save
+	return acf_update_value( $value, $post_id, $field );
+		
 }
 
 
@@ -1009,34 +986,33 @@ function update_field($selector, $value, $post_id = false)
 *  @return	(boolean)
 */
 
-function update_sub_field($selector, $value, $post_id = false)
-{
+function update_sub_field( $selector, $value, $post_id = false ) {
+	
+	// vars
+	$sub_field = false;
+	
+	
+	// get sub field
+	if( is_array($selector) ) {
+		
+		$post_id = acf_get_valid_post_id( $post_id );
+		$sub_field = acf_maybe_get_sub_field( $selector, $post_id, false );
+		
+	} else {
+		
+		$post_id = acf_get_loop('active', 'post_id');
+		$sub_field = get_row_sub_field( $selector );
+		
+	}
+	
+	
+	// bail early if no sub field
+	if( !$sub_field ) return false;
 
-    // vars
-    $sub_field = false;
 
-
-    // get sub field
-    if (is_array($selector)) {
-
-        $post_id = acf_get_valid_post_id($post_id);
-        $sub_field = acf_maybe_get_sub_field($selector, $post_id, false);
-
-    } else {
-
-        $post_id = acf_get_loop('active', 'post_id');
-        $sub_field = get_row_sub_field($selector);
-
-    }
-
-
-    // bail early if no sub field
-    if (!$sub_field) return false;
-
-
-    // update
-    return acf_update_value($value, $post_id, $sub_field);
-
+	// update
+	return acf_update_value( $value, $post_id, $sub_field );
+		
 }
 
 
@@ -1054,20 +1030,19 @@ function update_sub_field($selector, $value, $post_id = false)
 *  @return	(boolean)
 */
 
-function delete_field($selector, $post_id = false)
-{
-
-    // filter post_id
-    $post_id = acf_get_valid_post_id($post_id);
-
-
-    // get field
-    $field = acf_maybe_get_field($selector, $post_id);
-
-
-    // delete
-    return acf_delete_value($post_id, $field);
-
+function delete_field( $selector, $post_id = false ) {
+	
+	// filter post_id
+	$post_id = acf_get_valid_post_id( $post_id );
+	
+	
+	// get field
+	$field = acf_maybe_get_field( $selector, $post_id );
+	
+	
+	// delete
+	return acf_delete_value( $post_id, $field );
+	
 }
 
 
@@ -1086,11 +1061,10 @@ function delete_field($selector, $post_id = false)
 *  @return	(boolean)
 */
 
-function delete_sub_field($selector, $post_id = false)
-{
-
-    return update_sub_field($selector, null, $post_id);
-
+function delete_sub_field( $selector, $post_id = false ) {
+	
+	return update_sub_field( $selector, null, $post_id );
+		
 }
 
 
@@ -1109,40 +1083,39 @@ function delete_sub_field($selector, $post_id = false)
 *  @return	(boolean)
 */
 
-function add_row($selector, $row = false, $post_id = false)
-{
-
-    // filter post_id
-    $post_id = acf_get_valid_post_id($post_id);
-
-
-    // get field
-    $field = acf_maybe_get_field($selector, $post_id, false);
-
-
-    // bail early if no field
-    if (!$field) return false;
-
-
-    // get raw value
-    $value = acf_get_value($post_id, $field);
-
-
-    // ensure array
-    $value = acf_get_array($value);
-
-
-    // append
-    $value[] = $row;
-
-
-    // update value
-    acf_update_value($value, $post_id, $field);
-
-
-    // return
-    return count($value);
-
+function add_row( $selector, $row = false, $post_id = false ) {
+	
+	// filter post_id
+	$post_id = acf_get_valid_post_id( $post_id );
+	
+	
+	// get field
+	$field = acf_maybe_get_field( $selector, $post_id, false );
+	
+	
+	// bail early if no field
+	if( !$field ) return false;
+	
+	
+	// get raw value
+	$value = acf_get_value( $post_id, $field );
+	
+	
+	// ensure array
+	$value = acf_get_array($value);
+	
+	
+	// append
+	$value[] = $row;
+	
+	
+	// update value
+	acf_update_value( $value, $post_id, $field );
+	
+	
+	// return
+	return count($value);
+		
 }
 
 
@@ -1161,50 +1134,49 @@ function add_row($selector, $row = false, $post_id = false)
 *  @return	(boolean)
 */
 
-function add_sub_row($selector, $row = false, $post_id = false)
-{
-
-    // vars
-    $sub_field = false;
-
-
-    // get sub field
-    if (is_array($selector)) {
-
-        $post_id = acf_get_valid_post_id($post_id);
-        $sub_field = acf_maybe_get_sub_field($selector, $post_id, false);
-
-    } else {
-
-        $post_id = acf_get_loop('active', 'post_id');
-        $sub_field = get_row_sub_field($selector);
-
-    }
-
-
-    // bail early if no sub field
-    if (!$sub_field) return false;
-
-
-    // get raw value
-    $value = acf_get_value($post_id, $sub_field);
-
-
-    // ensure array
-    $value = acf_get_array($value);
-
-
-    // append
-    $value[] = $row;
-
-
-    // update
-    acf_update_value($value, $post_id, $sub_field);
+function add_sub_row( $selector, $row = false, $post_id = false ) {
+	
+	// vars
+	$sub_field = false;
+	
+	
+	// get sub field
+	if( is_array($selector) ) {
+		
+		$post_id = acf_get_valid_post_id( $post_id );
+		$sub_field = acf_maybe_get_sub_field( $selector, $post_id, false );
+	
+	} else {
+		
+		$post_id = acf_get_loop('active', 'post_id');
+		$sub_field = get_row_sub_field( $selector );
+		
+	}
+	
+	
+	// bail early if no sub field
+	if( !$sub_field ) return false;
+	
+		
+	// get raw value
+	$value = acf_get_value( $post_id, $sub_field );
+	
+	
+	// ensure array
+	$value = acf_get_array( $value );
+	
+	
+	// append
+	$value[] = $row;
 
 
-    // return
-    return count($value);
-
+	// update
+	acf_update_value( $value, $post_id, $sub_field );
+	
+	
+	// return
+	return count($value);
+	
 }
 
 
@@ -1224,45 +1196,44 @@ function add_sub_row($selector, $row = false, $post_id = false)
 *  @return	(boolean)
 */
 
-function update_row($selector, $i = 1, $row = false, $post_id = false)
-{
-
-    // vars
-    $offset = acf_get_setting('row_index_offset');
-    $i = $i - $offset;
-
-
-    // filter post_id
-    $post_id = acf_get_valid_post_id($post_id);
-
-
-    // get field
-    $field = acf_maybe_get_field($selector, $post_id, false);
-
-
-    // bail early if no field
-    if (!$field) return false;
-
-
-    // get raw value
-    $value = acf_get_value($post_id, $field);
-
-
-    // ensure array
-    $value = acf_get_array($value);
-
-
-    // update
-    $value[$i] = $row;
-
-
-    // update value
-    acf_update_value($value, $post_id, $field);
-
-
-    // return
-    return true;
-
+function update_row( $selector, $i = 1, $row = false, $post_id = false ) {
+	
+	// vars
+	$offset = acf_get_setting('row_index_offset');
+	$i = $i - $offset;
+	
+	
+	// filter post_id
+	$post_id = acf_get_valid_post_id( $post_id );
+	
+	
+	// get field
+	$field = acf_maybe_get_field( $selector, $post_id, false );
+	
+	
+	// bail early if no field
+	if( !$field ) return false;
+	
+	
+	// get raw value
+	$value = acf_get_value( $post_id, $field );
+	
+	
+	// ensure array
+	$value = acf_get_array($value);
+	
+	
+	// update
+	$value[ $i ] = $row;
+	
+	
+	// update value
+	acf_update_value( $value, $post_id, $field );
+	
+	
+	// return
+	return true;
+	
 }
 
 
@@ -1281,52 +1252,51 @@ function update_row($selector, $i = 1, $row = false, $post_id = false)
 *  @return	(boolean)
 */
 
-function update_sub_row($selector, $i = 1, $row = false, $post_id = false)
-{
-
-    // vars
-    $sub_field = false;
-    $offset = acf_get_setting('row_index_offset');
-    $i = $i - $offset;
-
-
-    // get sub field
-    if (is_array($selector)) {
-
-        $post_id = acf_get_valid_post_id($post_id);
-        $sub_field = acf_maybe_get_sub_field($selector, $post_id, false);
-
-    } else {
-
-        $post_id = acf_get_loop('active', 'post_id');
-        $sub_field = get_row_sub_field($selector);
-
-    }
-
-
-    // bail early if no sub field
-    if (!$sub_field) return false;
-
-
-    // get raw value
-    $value = acf_get_value($post_id, $sub_field);
-
-
-    // ensure array
-    $value = acf_get_array($value);
-
-
-    // append
-    $value[$i] = $row;
-
-
-    // update
-    acf_update_value($value, $post_id, $sub_field);
+function update_sub_row( $selector, $i = 1, $row = false, $post_id = false ) {
+	
+	// vars
+	$sub_field = false;
+	$offset = acf_get_setting('row_index_offset');
+	$i = $i - $offset;
+	
+	
+	// get sub field
+	if( is_array($selector) ) {
+		
+		$post_id = acf_get_valid_post_id( $post_id );
+		$sub_field = acf_maybe_get_sub_field( $selector, $post_id, false );
+	
+	} else {
+		
+		$post_id = acf_get_loop('active', 'post_id');
+		$sub_field = get_row_sub_field( $selector );
+		
+	}
+	
+	
+	// bail early if no sub field
+	if( !$sub_field ) return false;
+	
+		
+	// get raw value
+	$value = acf_get_value( $post_id, $sub_field );
+	
+	
+	// ensure array
+	$value = acf_get_array( $value );
+	
+	
+	// append
+	$value[ $i ] = $row;
 
 
-    // return
-    return true;
-
+	// update
+	acf_update_value( $value, $post_id, $sub_field );
+	
+	
+	// return
+	return true;
+		
 }
 
 
@@ -1345,49 +1315,48 @@ function update_sub_row($selector, $i = 1, $row = false, $post_id = false)
 *  @return	(boolean)
 */
 
-function delete_row($selector, $i = 1, $post_id = false)
-{
-
-    // vars
-    $offset = acf_get_setting('row_index_offset');
-    $i = $i - $offset;
-
-
-    // filter post_id
-    $post_id = acf_get_valid_post_id($post_id);
-
-
-    // get field
-    $field = acf_maybe_get_field($selector, $post_id);
-
-
-    // bail early if no field
-    if (!$field) return false;
-
-
-    // get value
-    $value = acf_get_value($post_id, $field);
-
-
-    // ensure array
-    $value = acf_get_array($value);
-
-
-    // bail early if index doesn't exist
-    if (!isset($value[$i])) return false;
-
-
-    // unset
-    unset($value[$i]);
-
-
-    // update
-    acf_update_value($value, $post_id, $field);
-
-
-    // return
-    return true;
-
+function delete_row( $selector, $i = 1, $post_id = false ) {
+	
+	// vars
+	$offset = acf_get_setting('row_index_offset');
+	$i = $i - $offset;
+	
+	
+	// filter post_id
+	$post_id = acf_get_valid_post_id( $post_id );
+	
+	
+	// get field
+	$field = acf_maybe_get_field( $selector, $post_id );
+	
+	
+	// bail early if no field
+	if( !$field ) return false;
+	
+	
+	// get value
+	$value = acf_get_value( $post_id, $field );
+	
+	
+	// ensure array
+	$value = acf_get_array($value);
+	
+	
+	// bail early if index doesn't exist
+	if( !isset($value[ $i ]) ) return false;
+	
+		
+	// unset
+	unset( $value[ $i ] );
+	
+	
+	// update
+	acf_update_value( $value, $post_id, $field );
+	
+	
+	// return
+	return true;
+	
 }
 
 
@@ -1406,56 +1375,55 @@ function delete_row($selector, $i = 1, $post_id = false)
 *  @return	(boolean)
 */
 
-function delete_sub_row($selector, $i = 1, $post_id = false)
-{
-
-    // vars
-    $sub_field = false;
-    $offset = acf_get_setting('row_index_offset');
-    $i = $i - $offset;
-
-
-    // get sub field
-    if (is_array($selector)) {
-
-        $post_id = acf_get_valid_post_id($post_id);
-        $sub_field = acf_maybe_get_sub_field($selector, $post_id, false);
-
-    } else {
-
-        $post_id = acf_get_loop('active', 'post_id');
-        $sub_field = get_row_sub_field($selector);
-
-    }
-
-
-    // bail early if no sub field
-    if (!$sub_field) return false;
-
-
-    // get raw value
-    $value = acf_get_value($post_id, $sub_field);
-
-
-    // ensure array
-    $value = acf_get_array($value);
-
-
-    // bail early if index doesn't exist
-    if (!isset($value[$i])) return false;
-
-
-    // append
-    unset($value[$i]);
-
-
-    // update
-    acf_update_value($value, $post_id, $sub_field);
+function delete_sub_row( $selector, $i = 1, $post_id = false ) {
+	
+	// vars
+	$sub_field = false;
+	$offset = acf_get_setting('row_index_offset');
+	$i = $i - $offset;
+	
+	
+	// get sub field
+	if( is_array($selector) ) {
+		
+		$post_id = acf_get_valid_post_id( $post_id );
+		$sub_field = acf_maybe_get_sub_field( $selector, $post_id, false );
+	
+	} else {
+		
+		$post_id = acf_get_loop('active', 'post_id');
+		$sub_field = get_row_sub_field( $selector );
+		
+	}
+	
+	
+	// bail early if no sub field
+	if( !$sub_field ) return false;
+	
+		
+	// get raw value
+	$value = acf_get_value( $post_id, $sub_field );
+	
+	
+	// ensure array
+	$value = acf_get_array( $value );
+	
+	
+	// bail early if index doesn't exist
+	if( !isset($value[ $i ]) ) return false;
+	
+	
+	// append
+	unset( $value[ $i ] );
 
 
-    // return
-    return true;
-
+	// update
+	acf_update_value( $value, $post_id, $sub_field );
+	
+	
+	// return
+	return true;
+		
 }
 
 
@@ -1472,46 +1440,40 @@ function delete_sub_row($selector, $i = 1, $post_id = false)
 *  @return	n/a
 */
 
-function create_field($field)
-{
+function create_field( $field ) {
 
-    acf_render_field($field);
-
+	acf_render_field( $field );
+	
 }
 
-function render_field($field)
-{
+function render_field( $field ) {
 
-    acf_render_field($field);
-
+	acf_render_field( $field );
+	
 }
 
-function reset_the_repeater_field()
-{
-
-    return reset_rows();
-
+function reset_the_repeater_field() {
+	
+	return reset_rows();
+	
 }
 
-function the_repeater_field($field_name, $post_id = false)
-{
-
-    return has_sub_field($field_name, $post_id);
-
+function the_repeater_field( $field_name, $post_id = false ) {
+	
+	return has_sub_field( $field_name, $post_id );
+	
 }
 
-function the_flexible_field($field_name, $post_id = false)
-{
-
-    return has_sub_field($field_name, $post_id);
-
+function the_flexible_field( $field_name, $post_id = false ) {
+	
+	return has_sub_field( $field_name, $post_id );
+	
 }
 
-function acf_filter_post_id($post_id)
-{
-
-    return acf_get_valid_post_id($post_id);
-
+function acf_filter_post_id( $post_id ) {
+	
+	return acf_get_valid_post_id( $post_id );
+	
 }
 
 ?>
