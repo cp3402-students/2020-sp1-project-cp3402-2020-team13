@@ -39,12 +39,15 @@ get_header();
 
 </div>
 <div class="history_sub_pages_container" >
-    <div class="bands_sub_pages_container" >  </div>
-    <div class="bands_sub_pages_container" >  </div>
-    <div class="bands_sub_pages_container" >  </div>
-    <div class="bands_sub_pages_container" >  </div>
-    <div class="bands_sub_pages_container" >  </div>
-  
+
+    <?php
+
+      include 'band-sub-page-generator.php';
+
+     ?>
+
+
+</div>
 
   </div>
 

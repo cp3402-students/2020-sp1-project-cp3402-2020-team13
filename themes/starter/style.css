@@ -1240,17 +1240,33 @@ width: 200px;
 
 }
 
+.bands_container  h3{
+  color: #fcb900;
+}
+
+.bands_container{
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
 .bands_sub_pages_container{
   width: 200px;
   height: 200px;
-  background-color: grey;
-
-
+  background-color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 
 .about_page_text_container h1, .about_page_text_container p{
 
 }
+
+.bands_sub_pages_container div, .bands_sub_pages_container img{
+
+}
+
 
 }

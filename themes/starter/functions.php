@@ -205,9 +205,9 @@ function new_event($post){
     echo
     "
         <div class='eventbar'>
-       
+
             <div class='eventbar-left'>
-            <h1>{$posttitle}</h1> 
+            <h1>{$posttitle}</h1>
             <h3>Band: {$band} </h3>
             <p>Venue: {$venue}</p>
             <p>Time: {$start_time} - {$finish_time}</p>
@@ -216,9 +216,11 @@ function new_event($post){
             <br>
             </div>
             <div class='eventbar-right'>
-             <p>{$details}</p> 
+             <p>{$details}</p>
              <p> For any enquiries please contact <a href=\"mailto:info@example.com\">info@example.com</a></p>
             </div>
          </div>
     ";
 }
+
+add_theme_support( 'post-thumbnails' );
