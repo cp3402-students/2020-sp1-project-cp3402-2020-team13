@@ -38,8 +38,8 @@ get_header();
     have years of performance experience. Check out the various bands below </p>
 
 </div>
-<div class="history_sub_pages_container" >
 
+<div class="post-generator_pages_container" >
     <?php
 
       include 'band-sub-page-generator.php';
@@ -49,7 +49,7 @@ get_header();
 
 </div>
 
-  </div>
+
 
   <div class="about_page_text_container">
 
