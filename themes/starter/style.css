@@ -385,10 +385,14 @@ h4,
 h5,
 h6 {
     clear: both;
+    color: white;
 }
 
 p {
     margin-bottom: 1.5em;
+    color: white;
+    font-size: 20px;
+
 }
 
 dfn,
@@ -473,6 +477,7 @@ hr {
 ul,
 ol {
     margin: 0 0 1.5em 3em;
+    color: white;
 }
 
 ul {
@@ -504,6 +509,7 @@ img {
 
 figure {
     margin: 1em 0;
+    color: white;
 }
 
 table {
@@ -1230,7 +1236,7 @@ width: 200px;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.bands_sub_pages_container, .history_sub_pages_container{
+.bands_sub_pages_container, .post-generator_pages_container{
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -1244,16 +1250,21 @@ width: 200px;
   color: #fcb900;
 }
 
+.bands_container img{
+  height: 150px;
+  width:  auto;
+}
+
 .bands_container{
-  width: 200px;
-  height: 200px;
+
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .bands_sub_pages_container{
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -1267,6 +1278,11 @@ width: 200px;
 .bands_sub_pages_container div, .bands_sub_pages_container img{
 
 }
+/*--------------------------------------------------------------
+##  Posts
+--------------------------------------------------------------*/
+
+
 
 
 }
