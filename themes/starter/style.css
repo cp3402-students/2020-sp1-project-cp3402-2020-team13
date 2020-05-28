@@ -1168,14 +1168,20 @@ object {
     padding: 8%;
 }
 
+
+.page_container{
+  margin: 20px;
+}
+
 /*--------------------------------------------------------------
 ## Contact Page Form
 --------------------------------------------------------------*/
-
+/*
 .contact_page_container{
   margin-left: 10px;
 
 }
+*/
 
 .contact_page_container p, .contact_page_container ul, .contact_page_container li, .contact_page_container h1{
   color: white;
@@ -1224,9 +1230,11 @@ width: 200px;
 /*--------------------------------------------------------------
 ## About Page Template
 --------------------------------------------------------------*/
+/*
 .about_page_container{
   margin: 20px
 }
+*/
 .about_page_container p, .about_page_container h1{
   color: white;
 }
@@ -1236,7 +1244,30 @@ width: 200px;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.bands_sub_pages_container, .post-generator_pages_container{
+.bands_sub_pages_container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 30px;
+
+}
+/*
+.bands_sub_pages_container{
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+*/
+
+
+/*--------------------------------------------------------------
+##  post Generator
+--------------------------------------------------------------*/
+.post-generator_pages_container{
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -1247,7 +1278,7 @@ width: 200px;
 }
 
 .bands_container  h3{
-  color: #fcb900;
+  color: #F9D342;
 }
 
 .bands_container img{
@@ -1260,27 +1291,14 @@ width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.bands_sub_pages_container{
-  width: 150px;
-  height: 150px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
+  margin: 20px;
 }
 
 
-.about_page_text_container h1, .about_page_text_container p{
-
-}
-
-.bands_sub_pages_container div, .bands_sub_pages_container img{
-
-}
 /*--------------------------------------------------------------
 ##  Posts
 --------------------------------------------------------------*/
+
 
 
 

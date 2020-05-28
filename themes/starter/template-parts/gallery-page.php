@@ -19,7 +19,7 @@ get_header(); ?>
 <body>
 
 
-  <div class="gallery_page_container">
+  <div class="page_container">
 
     <div class="gallery-page-description-container">
         <h1>Townsville Jazz Club Photo Albums</h1>
