@@ -8,7 +8,7 @@ in other parts of the website.
 
 To use, copy and paste the following code below:
 
-<div class="history_sub_pages_container" >
+<div class="post-generator_pages_container" >
     <?php
       include 'band-sub-page-generator.php';
      ?>
