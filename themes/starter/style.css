@@ -1299,6 +1299,11 @@ width: 200px;
 ##  Posts
 --------------------------------------------------------------*/
 
+.site-main .post-navigation, .comment-respond, .site-info{
+
+  visibility: hidden;
+}
+
 
 
 
