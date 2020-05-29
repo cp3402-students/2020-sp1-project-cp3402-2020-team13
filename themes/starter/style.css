@@ -512,6 +512,11 @@ figure {
     color: white;
 }
 
+figcaption{
+  font-size: 15px;
+  padding: 0 100px 0 0;
+}
+
 table {
     margin: 0 0 1.5em;
     width: 100%;
@@ -1298,14 +1303,69 @@ width: 200px;
 /*--------------------------------------------------------------
 ##  Posts
 --------------------------------------------------------------*/
+.content-area, .site-footer{
+margin:  0 20px 0 20px;
+}
+
+.entry-content{
+  margin: 0;
+}
+
+.entry-meta{
+  visibility: hidden;
+}
+
+.entry-header{
+  margin-top: 50px;
+  display: flex;
+  justify-content:center;
+  font-size: 30px;
+}
+.entry-header h1{
+  align-self: center;
+  color: #F9D342;
+  margin: 0;
+}
 
 .site-main .post-navigation, .comment-respond, .site-info{
+  visibility: hidden;
+}
 
+.wp-block-image{
+ margin-bottom: 50px;
+}
+
+.wp-block-gallery.is-cropped .blocks-gallery-item img{
+  max-width: 250px;
+}
+
+.blocks-gallery-item{
+  flex-grow: 0;
+}
+.wp-block-gallery .blocks-gallery-item{
+  flex-grow: 0;
+  margin-top: 40px;
+}
+
+.blocks-gallery-grid{
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+  .wp-block-gallery{
+  justify-content: center;
+  width: 100%;
+
+}
+
+.cat-links{
   visibility: hidden;
 }
 
 
 
 
-
+.bwg-item{
+  margin: 100px;
 }
