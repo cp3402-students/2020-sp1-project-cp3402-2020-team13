@@ -223,4 +223,8 @@ function new_event($post){
     ";
 }
 
+//functions that alows featured image to become thumbnail
 add_theme_support( 'post-thumbnails' );
+set_post_thumbnail_size( 250, 250);
+
+//funtion that sets a size for thumbnail image when it is set as featured image

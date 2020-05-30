@@ -15,16 +15,19 @@ get_header();
 
     </head>
     <body>
-        <div id="nav-container">
-            <br>
             <div class="event-header">
                 <h1>Jazz has never been more alive</h1>
                 <h3>The Townsville Jazz Club prides itself in bringing the best Jazz entertainment in the area.
-                    We host events fortnightly for all audiences and age ranges, making us the perfect place to get your Jazz fix. Sign up to be member to get </h3>
+                    We host events fortnightly for all audiences and age ranges, making us the perfect place to get your Jazz fix, come for the smooth sounds of The pacific
+                    mainstream band or the upbeat melodies of counterpoint. Sign up to be member to get special offers on entry, food and drinks. </h3>
             </div>
-        </div>
+        <form class="sorting-controls"></form>
         <?php
-            $posts=get_posts();
+        $args=array(
+            'category'=>'4',
+            'orderby'=>'date'
+        );
+        $posts=get_posts($args);
             foreach ($posts as $post){
                 new_event($post);
             }

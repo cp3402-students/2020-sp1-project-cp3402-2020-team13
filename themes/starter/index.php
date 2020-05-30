@@ -12,49 +12,36 @@
  * @package Townsville_Jazz_club
  */
 
-$posts =wp_get_recent_posts(5);
-$current_post=$posts[0];
-$dates=get_field("dates",$post->ID);
-$next_date=explode(",",$dates)[0];
-get_header(); ?>
+get_header();
+?>
 <html>
 <head>
 
 </head>
-
 <body>
-<div class="header-image">
-<div class="landing-content">
-                <p>
-                    Come and enjoy our regular jazz nights <br><br>
-                    We feature a range of very talented local bands playing great jazz music in a relaxed yet vibrant
-                    environment. The regular jazz nights feature a sit-in bracket and dancers are most welcome.
-                    Meals and bar facility available. No need to book
-                </p>
-            </div>
+<div class="landing-header">
+    The Best entertainment in Townsville<br>
+    <button>Sign Up</button>
+    <button>See our Events</button>
 </div>
-<div class="event-head">
-
+<div class="description-container">
+    <div class="description-header">
+    <h1>World class performers right at your front door</h1>
+    <p>Our friendly and relaxed club has a strong history of supporting
+        jazz in Townsville and has made a great contribution to the Townsville
+        Arts and Music Community over many years. Our well established clubs regular events that span multiple locations.
+    We have a wide variety of jazz bands, so your guarenteed to find something that you like.</p>
+    </div>
 </div>
-<div class="events">
+<?php
+$args=array(
+        'category'=>'4',
+    'orderby'=>'date'
+);
+$posts=get_posts($args);
+new_event($posts[0]);
+?>
 
-    <h2>
-        <b> UPCOMING EVENTS </b>
-    </h2>
-    <table>
-        <tr>
-            <th class="events-left">
-                <?php
-                    echo "<h2>" , get_the_title($current_post) , "</h2>";
-                    the_field("dates_copy",$post->ID);
-                    echo "<p>" , get_field("start_time",$post->ID) , "</p>";
-                    echo "<p>" , get_field("finish_time",$post->ID)  , "</p>";
-                ?>
-            </th>
-            <th>rfagfrgvd</th>
-        </tr>
-    </table>
-</div>
-
+<?php include "footer.php"; ?>
 </body>
 </html>
