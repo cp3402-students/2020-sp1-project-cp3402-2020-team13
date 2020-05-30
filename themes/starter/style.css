@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 /*!
 Theme Name: Townsville Jazz club
 Theme URI: http://underscores.me/
@@ -78,7 +79,8 @@ body {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 a{
-    color: #6A8A82;;
+    color: #F9D342;
+    text-decoration: none;
 }
 h1 {
     font-size: 2em;
@@ -385,14 +387,10 @@ h4,
 h5,
 h6 {
     clear: both;
-    color: white;
 }
 
 p {
     margin-bottom: 1.5em;
-    color: white;
-    font-size: 20px;
-
 }
 
 dfn,
@@ -477,7 +475,6 @@ hr {
 ul,
 ol {
     margin: 0 0 1.5em 3em;
-    color: white;
 }
 
 ul {
@@ -509,12 +506,6 @@ img {
 
 figure {
     margin: 1em 0;
-    color: white;
-}
-
-figcaption{
-  font-size: 15px;
-  padding: 0 100px 0 0;
 }
 
 table {
@@ -609,34 +600,7 @@ textarea {
 
 /*--------------------------------------------------------------
 # Navigation
--------------------------------------------------------------
-
-
-.site-header{
-  width: 100%;
-}
-
-.main-navigation{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-
-}
-
-
-
-.site-nav{
-  align-self: flex-end;
-}
-
-.site-header{
-  align-self: flex-end;
-  display: flex;
-}
-.head-logo{
-  align-self: flex-start;
-}
--*/
+--------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 ## Links
@@ -1024,49 +988,27 @@ object {
 }
 
 .site-nav {
-  margin-top: -1.5%;
-  width: 100%;
-  /* float: right; */
-  color: white;
-  margin-left: 20px;
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: nowrap;
-  align-items: flex-start;
+    margin-top: -1.5%;
+    width: 50%;
+    float: right;
+    color: white;
+
 
 }
-
-.menu{
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.site-header{
-  display: flex;
-}
-
-.menu-menu-1-container{
-  width: 100%;
-}
-
-
 
 .site-nav li {
     font-size: 110%;
-    padding: 30px;
+    padding: 3.7%;
     list-style-type: none;
     text-decoration: none;
-    margin-top: 10px;
     color: white;
+    float: left;
     display: block;
-
 }
 
 .site-nav li:hover {
     transition: 0.8s;
-    background-color: #6A8A82;
+    background-color: #F9D342;
     color: black;
 }
 
@@ -1148,10 +1090,9 @@ border: 2px solid #F9D342;
 }
 
 .events {
-    margin-left: 6%;
-    margin-right: 6%;
-    border-left: solid 3px midnightblue;
-    border-right: solid 3px midnightblue;
+    margin-right: 12%;
+    margin-left: 12%;
+    border-top: solid 2px #F9D342;
     text-align: center;
     font-size: 150%;
 }
@@ -1168,20 +1109,19 @@ border: 2px solid #F9D342;
 .media-player {
     cursor: pointer;
     font-size: 110%;
-    padding: 1.6%;
-    background-color: #A7414A;
+    background-color: #F9D342;
     float: right;
-    margin: 15px 1.9% 0 10%;
 }
 
 
 .eventbar {
+    font-family: 'Patua One', cursive;
     color: white;
-    border: 2px solid #6A8A82;
-    margin: 4% 10% 3%;
+    border-top: solid 2px #F9D342;
+    margin: -1% 12% 3%;
     padding-left: 4%;
     padding-bottom: 22%;
-    border-radius: 10px;
+
 }
 
 .eventbar h1{
@@ -1214,15 +1154,18 @@ border: 2px solid #F9D342;
 
 .head-logo{
     padding-top: 0.5%;
-    width: auto;
-    height: 50px;
+    width: 20%;
+    height: auto;
 }
 .event-header{
+    font-family: 'Patua One', cursive;
+    color: white;
+    font-size: 130%;
     margin: 1% 20%;
     text-align: center;
 }
 .event-header h1{
-    color: #A7414A;
+    color: #F9D342;
     font-size: 200%;
 }
 #login{
@@ -1263,20 +1206,14 @@ border: 2px solid #F9D342;
     padding: 8%;
 }
 
-
-.page_container{
-  margin: 20px;
-}
-
 /*--------------------------------------------------------------
 ## Contact Page Form
 --------------------------------------------------------------*/
-/*
+
 .contact_page_container{
   margin-left: 10px;
 
 }
-*/
 
 .contact_page_container p, .contact_page_container ul, .contact_page_container li, .contact_page_container h1{
   color: white;
@@ -1286,47 +1223,20 @@ border: 2px solid #F9D342;
 }
 
 
-
-
 .contact_page_text_container{
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   margin-left: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
+
 }
 
-.find_us_container{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-
-.location_container{
-    margin: 0 70px;
-    border: solid;
-    border-color: #F9D342;
-    border-radius: 12px;
-    padding: 20px;
-}
-.location_container h2{
-  text-align: center;
-}
-
-.contact_page_text_container h1{
-  text-align: center;
-  margin-bottom: 0;
-}
 
 .wpcf7-form{
   margin-left: 30px;
   margin-right: 30px;
-  border-style: solid;
-  border-color: #F9D342;
-  padding: 15px 15px 100px 15px;
-  border-radius: 12px;
 }
 .wpcf7-form input[type=text]{
   width: 100%;
@@ -1352,11 +1262,9 @@ width: 200px;
 /*--------------------------------------------------------------
 ## About Page Template
 --------------------------------------------------------------*/
-/*
 .about_page_container{
   margin: 20px
 }
-*/
 .about_page_container p, .about_page_container h1{
   color: white;
 }
@@ -1366,30 +1274,7 @@ width: 200px;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.bands_sub_pages_container{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 30px;
-
-}
-/*
-.bands_sub_pages_container{
-  width: 150px;
-  height: 150px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-}
-*/
-
-
-/*--------------------------------------------------------------
-##  post Generator
---------------------------------------------------------------*/
-.post-generator_pages_container{
+.bands_sub_pages_container, .history_sub_pages_container{
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -1400,86 +1285,225 @@ width: 200px;
 }
 
 .bands_container  h3{
-  color: #F9D342;
-}
-
-.bands_container img{
-  height: 150px;
-  width:  auto;
+  color: #fcb900;
 }
 
 .bands_container{
-
+  width: 200px;
+  height: 200px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 20px;
 }
 
-
-/*--------------------------------------------------------------
-##  Posts
---------------------------------------------------------------*/
-.content-area, .site-footer{
-margin:  0 20px 0 20px;
-}
-
-.entry-content{
-  margin: 0;
-}
-
-.entry-meta{
-  visibility: hidden;
-}
-
-.entry-header{
-  margin-top: 50px;
+.bands_sub_pages_container{
+  width: 200px;
+  height: 200px;
+  background-color: white;
   display: flex;
-
-  font-size: 30px;
-}
-.entry-header h1{
-  align-self: center;
-  color: #F9D342;
-  margin: 0;
+  flex-direction: column;
 }
 
-.site-main .post-navigation, .comment-respond, .site-info{
-  visibility: hidden;
-}
 
-.wp-block-image{
- margin-bottom: 50px;
-}
-
-.wp-block-gallery.is-cropped .blocks-gallery-item img{
-  max-width: 250px;
-}
-
-.blocks-gallery-item{
-  flex-grow: 0;
-}
-.wp-block-gallery .blocks-gallery-item{
-  flex-grow: 0;
-  margin-top: 40px;
-}
-
-.blocks-gallery-grid{
-  width: 100%;
-  flex-wrap: nowrap;
-  justify-content: center;
-}
-
-  .wp-block-gallery{
-  justify-content: center;
-  width: 100%;
+.about_page_text_container h1, .about_page_text_container p{
 
 }
 
-.cat-links{
-  visibility: hidden;
+.bands_sub_pages_container div, .bands_sub_pages_container img{
+
+}
+.landing-img {
+
+    float: right;
+    width: 40%;
+    height: auto;
+    margin-left: 5%;
+    margin-top: 1%;
+    object-fit: fill;
+    overflow: no-display;
 }
 
-.bwg-item{
-  margin: 100px;
+.landing-header {
+    background-repeat: no-repeat;
+    background-position: top;
+    background-image: url("http://localhost/wp-content/uploads/2020/05/jazz-clipart-silhouette-1.png");
+    background-size: 70%;
+    padding-top: 12%;
+    padding-bottom: 12%;
+    font-family: 'Patua One', cursive;
+    text-align: center;
+    color: #F9D342;
+    font-size: 450%;
+}
+
+.landing-header button {
+    font-family: 'Patua One', cursive;
+    background-color: transparent;
+    color: white;
+    padding: 2% 3%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 60%;
+    border: 2px solid #F9D342;
+}
+
+.landing-header button:hover {
+    background-color: #F9D342;
+    color: #292826;
+    transition: 0.5s;
+}
+
+
+.description-header{
+    margin-right: 12%;
+    margin-left: 12%;
+
+}
+.description-header h1{
+    font-family: 'Patua One', cursive;
+    color: #F9D342;
+    font-size: 300%;
+}
+.description-header p{
+    color: white;
+    font-family: 'Patua One', cursive;
+    font-size: 150%;
+}
+.description-header button{
+    font-family: 'Patua One', cursive;
+    background-color: transparent;
+    color: white;
+    padding: 2% 4%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 150%;
+    border: 2px solid #F9D342;
+}
+
+.description-header button:hover {
+    background-color: #F9D342;
+    color: #292826;
+    transition: 0.5s;
+}
+
+.container {
+    margin-top: 2%;
+
+    position: relative;
+    width: 20%;
+}
+
+.image {
+    margin-top: 10%;
+    border-radius: 5px;
+    display: block;
+    width: 70%;
+    height: auto;
+}
+
+.overlay {
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 70%;
+    height: 0;
+    transition: .5s ease;
+}
+
+.container:hover .overlay {
+    height: 100%;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+
+.overlay h4{
+    color: #F9D342;
+}
+.overlay p{
+    color: white;
+    font-size: 65%;
+}
+
+.container:hover .overlay {
+    opacity: 1;
+}
+.text {
+    color: white;
+    width: 80%;
+    font-size: 130%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    font-size: 160%;
+    border: none;
+}
+
+.dropup {
+    width: 15%;
+    margin-left: 12%;
+    margin-bottom: 1%;
+    position: relative;
+    display: inline-block;
+}
+
+.dropup-content {
+    text-align: center;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    bottom: 50px;
+    z-index: 1;
+}
+
+.dropup-content a {
+    color: black;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    text-decoration: none;
+    display: block;
+}
+
+.dropup-content a:hover {background-color: #ccc}
+
+.dropup:hover .dropup-content {
+    display: block;
+}
+
+.dropup:hover .dropbtn {
+    background-color: #F9D342;
+}
+
+.event{
+    font-family: 'Patua One', cursive;
+    color: #F9D342;
+    margin-left: 12%;
+    font-size: 300%;
 }

@@ -26,19 +26,25 @@ get_header();
 </div>
 <div class="description-container">
     <div class="description-header">
-    <h1>World class performers right at your front door</h1>
-    <p>Our friendly and relaxed club has a strong history of supporting
-        jazz in Townsville and has made a great contribution to the Townsville
-        Arts and Music Community over many years. Our well established clubs regular events that span multiple locations.
-    We have a wide variety of jazz bands, so your guarenteed to find something that you like.</p>
+        <h1>World class performers right at your front door</h1>
+        <p>Our friendly and relaxed club has a strong history of supporting
+            jazz in Townsville and has made a great contribution to the Townsville
+            Arts and Music Community over many years. Our well established clubs regular events that span multiple
+            locations.
+            We have a wide variety of jazz bands, so your guarenteed to find something that you like.</p>
     </div>
+
 </div>
+<h1 class="event">Whats Coming Up....</h1>
+
+
+
 <?php
-$args=array(
-        'category'=>'4',
-    'orderby'=>'date'
+$args = array(
+    'category' => '4',
+    'orderby' => 'date'
 );
-$posts=get_posts($args);
+$posts = get_posts($args);
 new_event($posts[0]);
 ?>
 
