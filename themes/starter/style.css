@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 /*!
 Theme Name: Townsville Jazz club
 Theme URI: http://underscores.me/
@@ -79,8 +78,7 @@ body {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 a{
-    color: #F9D342;
-    text-decoration: none;
+    color: #6A8A82;;
 }
 h1 {
     font-size: 2em;
@@ -387,10 +385,14 @@ h4,
 h5,
 h6 {
     clear: both;
+    color: white;
 }
 
 p {
     margin-bottom: 1.5em;
+    color: white;
+    font-size: 20px;
+
 }
 
 dfn,
@@ -475,6 +477,7 @@ hr {
 ul,
 ol {
     margin: 0 0 1.5em 3em;
+    color: white;
 }
 
 ul {
@@ -506,6 +509,12 @@ img {
 
 figure {
     margin: 1em 0;
+    color: white;
+}
+
+figcaption{
+  font-size: 15px;
+  padding: 0 100px 0 0;
 }
 
 table {
@@ -600,7 +609,34 @@ textarea {
 
 /*--------------------------------------------------------------
 # Navigation
---------------------------------------------------------------*/
+-------------------------------------------------------------
+
+
+.site-header{
+  width: 100%;
+}
+
+.main-navigation{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+
+.site-nav{
+  align-self: flex-end;
+}
+
+.site-header{
+  align-self: flex-end;
+  display: flex;
+}
+.head-logo{
+  align-self: flex-start;
+}
+-*/
 
 /*--------------------------------------------------------------
 ## Links
@@ -988,27 +1024,49 @@ object {
 }
 
 .site-nav {
-    margin-top: -1.5%;
-    width: 50%;
-    float: right;
-    color: white;
-
+  margin-top: -1.5%;
+  width: 100%;
+  /* float: right; */
+  color: white;
+  margin-left: 20px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  align-items: flex-start;
 
 }
 
+.menu{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.site-header{
+  display: flex;
+}
+
+.menu-menu-1-container{
+  width: 100%;
+}
+
+
+
 .site-nav li {
     font-size: 110%;
-    padding: 3.7%;
+    padding: 30px;
     list-style-type: none;
     text-decoration: none;
+    margin-top: 10px;
     color: white;
-    float: left;
     display: block;
+
 }
 
 .site-nav li:hover {
     transition: 0.8s;
-    background-color: #F9D342;
+    background-color: #6A8A82;
     color: black;
 }
 
@@ -1048,9 +1106,10 @@ object {
 }
 
 .events {
-    margin-right: 12%;
-    margin-left: 12%;
-    border-top: solid 2px #F9D342;
+    margin-left: 6%;
+    margin-right: 6%;
+    border-left: solid 3px midnightblue;
+    border-right: solid 3px midnightblue;
     text-align: center;
     font-size: 150%;
 }
@@ -1067,18 +1126,20 @@ object {
 .media-player {
     cursor: pointer;
     font-size: 110%;
-    background-color: #F9D342;
+    padding: 1.6%;
+    background-color: #A7414A;
     float: right;
+    margin: 15px 1.9% 0 10%;
 }
 
 
 .eventbar {
     color: white;
-    border-top: solid 2px #F9D342;
-    margin: 4% 12% 3%;
+    border: 2px solid #6A8A82;
+    margin: 4% 10% 3%;
     padding-left: 4%;
     padding-bottom: 22%;
-
+    border-radius: 10px;
 }
 
 .eventbar h1{
@@ -1111,18 +1172,15 @@ object {
 
 .head-logo{
     padding-top: 0.5%;
-    width: 20%;
-    height: auto;
+    width: auto;
+    height: 50px;
 }
 .event-header{
-    font-family: 'Patua One', cursive;
-    color: white;
-    font-size: 130%;
     margin: 1% 20%;
     text-align: center;
 }
 .event-header h1{
-    color: #F9D342;
+    color: #A7414A;
     font-size: 200%;
 }
 #login{
@@ -1163,14 +1221,20 @@ object {
     padding: 8%;
 }
 
+
+.page_container{
+  margin: 20px;
+}
+
 /*--------------------------------------------------------------
 ## Contact Page Form
 --------------------------------------------------------------*/
-
+/*
 .contact_page_container{
   margin-left: 10px;
 
 }
+*/
 
 .contact_page_container p, .contact_page_container ul, .contact_page_container li, .contact_page_container h1{
   color: white;
@@ -1219,9 +1283,11 @@ width: 200px;
 /*--------------------------------------------------------------
 ## About Page Template
 --------------------------------------------------------------*/
+/*
 .about_page_container{
   margin: 20px
 }
+*/
 .about_page_container p, .about_page_container h1{
   color: white;
 }
@@ -1231,7 +1297,30 @@ width: 200px;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.bands_sub_pages_container, .history_sub_pages_container{
+.bands_sub_pages_container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 30px;
+
+}
+/*
+.bands_sub_pages_container{
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+*/
+
+
+/*--------------------------------------------------------------
+##  post Generator
+--------------------------------------------------------------*/
+.post-generator_pages_container{
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -1242,210 +1331,86 @@ width: 200px;
 }
 
 .bands_container  h3{
-  color: #fcb900;
+  color: #F9D342;
+}
+
+.bands_container img{
+  height: 150px;
+  width:  auto;
 }
 
 .bands_container{
-  width: 200px;
-  height: 200px;
+
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 20px;
 }
 
-.bands_sub_pages_container{
-  width: 200px;
-  height: 200px;
-  background-color: white;
+
+/*--------------------------------------------------------------
+##  Posts
+--------------------------------------------------------------*/
+.content-area, .site-footer{
+margin:  0 20px 0 20px;
+}
+
+.entry-content{
+  margin: 0;
+}
+
+.entry-meta{
+  visibility: hidden;
+}
+
+.entry-header{
+  margin-top: 50px;
   display: flex;
-  flex-direction: column;
+  justify-content:center;
+  font-size: 30px;
+}
+.entry-header h1{
+  align-self: center;
+  color: #F9D342;
+  margin: 0;
 }
 
+.site-main .post-navigation, .comment-respond, .site-info{
+  visibility: hidden;
+}
 
-.about_page_text_container h1, .about_page_text_container p{
+.wp-block-image{
+ margin-bottom: 50px;
+}
+
+.wp-block-gallery.is-cropped .blocks-gallery-item img{
+  max-width: 250px;
+}
+
+.blocks-gallery-item{
+  flex-grow: 0;
+}
+.wp-block-gallery .blocks-gallery-item{
+  flex-grow: 0;
+  margin-top: 40px;
+}
+
+.blocks-gallery-grid{
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+  .wp-block-gallery{
+  justify-content: center;
+  width: 100%;
 
 }
 
-.bands_sub_pages_container div, .bands_sub_pages_container img{
-
-}
-.landing-img {
-
-    float: right;
-    width: 40%;
-    height: auto;
-    margin-left: 5%;
-    margin-top: 1%;
-    object-fit: fill;
-    overflow: no-display;
+.cat-links{
+  visibility: hidden;
 }
 
-.landing-header {
-    background-repeat: no-repeat;
-    background-position: top;
-    background-image: url("http://localhost/wp-content/uploads/2020/05/jazz-clipart-silhouette-1.png");
-    background-size: 70%;
-    padding-top: 12%;
-    padding-bottom: 12%;
-    font-family: 'Patua One', cursive;
-    text-align: center;
-    color: #F9D342;
-    font-size: 450%;
+.bwg-item{
+  margin: 100px;
 }
-
-.landing-header button {
-    font-family: 'Patua One', cursive;
-    background-color: transparent;
-    color: white;
-    padding: 2% 3%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    font-size: 60%;
-    border: 2px solid #F9D342;
-}
-
-.landing-header button:hover {
-    background-color: #F9D342;
-    color: #292826;
-    transition: 0.5s;
-}
-
-
-.description-header{
-    margin-right: 12%;
-    margin-left: 12%;
-
-}
-.description-header h1{
-    font-family: 'Patua One', cursive;
-    color: #F9D342;
-    font-size: 300%;
-}
-.description-header p{
-    color: white;
-    font-family: 'Patua One', cursive;
-    font-size: 150%;
-}
-.description-header button{
-    font-family: 'Patua One', cursive;
-    background-color: transparent;
-    color: white;
-    padding: 2% 4%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    font-size: 150%;
-    border: 2px solid #F9D342;
-}
-
-.description-header button:hover {
-    background-color: #F9D342;
-    color: #292826;
-    transition: 0.5s;
-}
-
-.container {
-    margin-top: 2%;
-
-    position: relative;
-    width: 20%;
-}
-
-.image {
-    margin-top: 10%;
-    border-radius: 5px;
-    display: block;
-    width: 70%;
-    height: auto;
-}
-
-.overlay {
-    border-radius: 5px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #008CBA;
-    overflow: hidden;
-    width: 70%;
-    height: 0;
-    transition: .5s ease;
-}
-
-.container:hover .overlay {
-    height: 100%;
-}
-
-.text {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-
-
-.overlay h4{
-    color: #F9D342;
-}
-.overlay p{
-    color: white;
-    font-size: 65%;
-}
-
-.container:hover .overlay {
-    opacity: 1;
-}
-.text {
-    color: white;
-    width: 80%;
-    font-size: 130%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #3e8e41;}

@@ -14,7 +14,8 @@ get_header();
 
   <body>
 
-    <div class="contact_page_container">
+
+  <div class="page_container">
 
 
 
