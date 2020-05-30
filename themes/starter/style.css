@@ -71,7 +71,6 @@ html {
  */
 body {
     background-color: #282726;
-    margin: 0;
 }
 
 /**
@@ -378,6 +377,7 @@ textarea {
     font-size: 16px;
     font-size: 1rem;
     line-height: 1.5;
+    margin: 0 20px;
 }
 
 h1,
@@ -387,10 +387,12 @@ h4,
 h5,
 h6 {
     clear: both;
+    color: white;
 }
 
 p {
     margin-bottom: 1.5em;
+    color: white;
 }
 
 dfn,
@@ -475,6 +477,7 @@ hr {
 ul,
 ol {
     margin: 0 0 1.5em 3em;
+    color: white;
 }
 
 ul {
@@ -1506,4 +1509,268 @@ width: 200px;
     color: #F9D342;
     margin-left: 12%;
     font-size: 300%;
+}
+
+/* ------------shaun------------
+30/5
+
+all my previous work got removed so I re-did it.
+-headers changed to white
+-page containers set with margine of 20px horizontal
+
+
+*/
+
+
+.post-generator_pages_container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 30px;
+
+}
+
+.bands_container  h3{
+  color: #F9D342;
+}
+
+.bands_container img{
+  height: 150px;
+  width:  auto;
+}
+
+.bands_container{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+/*--------------------------------------------------------------
+##  Posts
+--------------------------------------------------------------*/
+.content-area, .site-footer{
+margin:  0 20px 0 20px;
+}
+
+.entry-content{
+  margin: 0;
+}
+
+.entry-meta{
+  visibility: hidden;
+}
+
+.entry-header{
+  margin-top: 50px;
+  display: flex;
+
+  font-size: 30px;
+}
+.entry-header h1{
+  align-self: center;
+  color: #F9D342;
+  margin: 0;
+}
+
+.site-main .post-navigation, .comment-respond, .site-info{
+  visibility: hidden;
+}
+
+.wp-block-image{
+ margin-bottom: 50px;
+}
+
+.wp-block-gallery.is-cropped .blocks-gallery-item img{
+  max-width: 250px;
+}
+
+.blocks-gallery-item{
+  flex-grow: 0;
+}
+.wp-block-gallery .blocks-gallery-item{
+  flex-grow: 0;
+  margin-top: 40px;
+}
+
+.blocks-gallery-grid{
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+  .wp-block-gallery{
+  justify-content: center;
+  width: 100%;
+
+}
+
+.cat-links{
+  visibility: hidden;
+}
+
+.bwg-item{
+  margin: 100px;
+}
+
+/*--------------------------------------------------------------
+## Page-container
+--------------------------------------------------------------*/
+
+.page_container{
+  margin: 0 20px;
+}
+
+/*--------------------------------------------------------------
+## contact page
+--------------------------------------------------------------*/
+
+.contact_page_container p, .contact_page_container ul, .contact_page_container li, .contact_page_container h1{
+  color: white;
+  align-self: left;
+
+
+}
+
+.contact_page_text_container{
+  margin-bottom: 50px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+
+.find_us_container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.location_container{
+    margin: 0 70px;
+    border: solid;
+    border-color: #F9D342;
+    border-radius: 12px;
+    padding: 20px;
+}
+.location_container h2{
+  text-align: center;
+}
+
+
+.contact_page_text_container h1{
+  text-align: start;
+  margin: 100px 0 0 0;
+}
+
+.wpcf7-form {
+    margin-left: 30px;
+    margin-right: 30px;
+    border-style: solid;
+    border-color: #F9D342;
+    padding: 15px 50px 100px 50px;
+    border-radius: 12px;
+  }
+
+
+.wpcf7-form input[type=text]{
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0;
+}
+.wpcf7 input[type=submit]{
+background-color: #4CAF50;
+border: none;
+color: white;
+padding: 16px 32px;
+text-decoration: none;
+margin: 4px 2px;
+cursor: pointer;
+float: right;
+width: 200px;
+}
+
+.wpcf7-form textarea{
+  width: 100%;
+}
+
+/*--------------------------------------------------------------
+## navigation Menu
+
+--------------------------------------------------------------*/
+
+
+.media-player {
+    cursor: pointer;
+    font-size: 110%;
+    padding: 10px 0;
+    background-color: #F9D342;
+    float: right;
+    margin: 40px 0 0 10%;
+    text-align: center;
+    width: 200px;
+    /* margin: 50px; */
+}
+
+.media-player p{
+  margin: 0;
+  width: 200px;
+}
+
+.site-nav {
+  margin-top: -1.5%;
+  width: 100%;
+  /* float: right; */
+  color: white;
+  margin-left: 20px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+
+}
+
+.menu{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.menu li{
+  text-align: center;
+}
+
+.site-header{
+  display: flex;
+}
+
+.menu-menu-1-container{
+  width: 100%;
+}
+
+
+
+.site-nav li {
+    font-size: 110%;
+    padding: 30px;
+    list-style-type: none;
+    text-decoration: none;
+    margin-top: 15px;
+    color: white;
+    display: block;
+    width: 200px;
+
+}
+
+.head-logo {
+    padding-top: 0.5%;
+    width: auto;
+    height: 50px;
 }

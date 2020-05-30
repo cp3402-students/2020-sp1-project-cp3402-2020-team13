@@ -51,7 +51,7 @@ get_header();
 
   </div>
 
-  <div class="about_page_text_container">
+  <div class="page_container">
 
 
     <h1>Our History</h1>
@@ -60,16 +60,16 @@ get_header();
        next generation to continue the club's legacy. The following articles
         provide an insight to the club's history. </p>
 
+      </div>
 
-        <div class="history_sub_pages_container" >
-            <div class="bands_sub_pages_container" >  </div>
-            <div class="bands_sub_pages_container" >  </div>
-            <div class="bands_sub_pages_container" >  </div>
-            <div class="bands_sub_pages_container" >  </div>
-            <div class="bands_sub_pages_container" >  </div>
-            <div class="bands_sub_pages_container" >  </div>
+      <div class="post-generator_pages_container" >
+          <?php
 
-          </div>
+            include 'history-sub-page-generator.php';
+
+           ?>
+
+
       </div>
 
 
