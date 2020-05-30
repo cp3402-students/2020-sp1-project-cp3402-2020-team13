@@ -1105,6 +1105,48 @@ object {
     padding-bottom: 3%;
 }
 
+.landing-header{
+  background-repeat: no-repeat;
+background-position: top;
+background-image: url(http://townsville-jazz-club.local/wp-content/uploads/2020/05/clarinet-clipart-beautiful-17.png);
+padding-top: 12%;
+padding-bottom: 12%;
+font-family: 'Patua One', cursive;
+text-align: center;
+color: #F9D342;
+font-size: 450%;
+}
+
+.landing-header button{
+  font-family: 'Patua One', cursive;
+background-color: transparent;
+color: white;
+padding: 2% 3%;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+font-size: 60%;
+border: 2px solid #F9D342;
+}
+
+.description-header {
+    padding-top: 12%;
+    padding-bottom: 12%;
+    text-align: center;
+}
+.description-header h1 {
+    font-family: 'Patua One', cursive;
+    color: #F9D342;
+    font-size: 300%;
+}
+
+.description-header p {
+    color: white;
+    font-family: 'Patua One', cursive;
+    font-size: 150%;
+}
+
 .events {
     margin-left: 6%;
     margin-right: 6%;
