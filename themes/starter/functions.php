@@ -189,19 +189,25 @@ require get_template_directory() . '/inc/customizer.php';
 if (defined('JETPACK__VERSION')) {
     require get_template_directory() . '/inc/jetpack.php';
 }
-function dates_check($post){
-
+function handle_dates($raw){
+    $dates_formatted=array();
+    $dates=explode(",",$raw);
+    foreach ($dates as $date){
+        $indiv=explode("/",$date);
+        $temp=date("Y-m",$indiv[0],$indiv[1]);
+        array_push($dates_formatted,$temp);
+    }
 }
 function new_event($post){
     $posttitle=get_the_title($post);
     $band=get_field("band",$post);
     $venue=get_field("venue",$post);
     $dates=get_field("dates",$post);
-    $start_time=get_field("start_time",$post);
-    $finish_time=get_field("finish_time",$post);
-    $price_n=get_field("price_normal",$post);
+    $start_time=get_field("time_start",$post);
+    $finish_time=get_field("time_finish",$post);
+    $price_n=get_field("price_non_member",$post);
     $price_m=get_field("price_member",$post);
-    $details=get_field("event_details",$post);
+    $details=get_field("description",$post);
     echo
     "
         <div class='eventbar'>
@@ -228,3 +234,4 @@ add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 250, 250);
 
 //funtion that sets a size for thumbnail image when it is set as featured image
+$sort='name';

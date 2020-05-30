@@ -1073,6 +1073,7 @@ object {
 
 
 .eventbar {
+    font-family: 'Patua One', cursive;
     color: white;
     border-top: solid 2px #F9D342;
     margin: -1% 12% 3%;
@@ -1423,7 +1424,7 @@ width: 200px;
 }
 
 .dropup {
-    width: 8%;
+    width: 15%;
     margin-left: 12%;
     margin-bottom: 1%;
     position: relative;
@@ -1456,4 +1457,11 @@ width: 200px;
 
 .dropup:hover .dropbtn {
     background-color: #F9D342;
+}
+
+.event{
+    font-family: 'Patua One', cursive;
+    color: #F9D342;
+    margin-left: 12%;
+    font-size: 300%;
 }
