@@ -21,7 +21,13 @@ get_header();
                     We host events fortnightly for all audiences and age ranges, making us the perfect place to get your Jazz fix, come for the smooth sounds of The pacific
                     mainstream band or the upbeat melodies of counterpoint. Sign up to be member to get special offers on entry, food and drinks. </h3>
             </div>
-        <form class="sorting-controls"></form>
+            <div class="dropup">
+                <button class="dropbtn">Sort by</button>
+                <div class="dropup-content">
+                    <a href="#">Name</a>
+                    <a href="#">Date</a>
+                </div>
+            </div>
         <?php
         $args=array(
             'category'=>'4',
