@@ -22,6 +22,26 @@ get_header();
 
     <div class="contact_page_text_container">
 
+              <h1>Come Check us out at our two locations</h1>
+
+      </div>
+
+      <div class="find_us_container">
+
+        <div class="location_container">
+          <h2>Fish Inn at the Rock Pool</h2>
+          <p>54 Howitt St, Townsville QLD 4810</p>
+        </div>
+
+        <div class="location_container">
+          <h2>Chico Rio</h2>
+          <p>247 Flinders St, Townsville QLD 4810</p>
+        </div>
+
+        </div>
+
+      </div>
+
 
 
 
