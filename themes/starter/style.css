@@ -1052,7 +1052,7 @@ object {
 background-position: top;
 background-image: url(http://townsville-jazz-club.local/wp-content/uploads/2020/05/clarinet-clipart-beautiful-17.png);
 padding-top: 12%;
-padding-bottom: 12%;
+padding-bottom: 8%;
 font-family: 'Patua One', cursive;
 text-align: center;
 color: #F9D342;
@@ -1073,8 +1073,8 @@ border: 2px solid #F9D342;
 }
 
 .description-header {
-    padding-top: 12%;
-    padding-bottom: 12%;
+    padding-top: 6%;
+    padding-bottom: 6%;
     text-align: center;
 }
 .description-header h1 {
@@ -1169,28 +1169,49 @@ border: 2px solid #F9D342;
     font-size: 200%;
 }
 #login{
+    margin: 2%;
+    font-size: 150%;
     color: white;
     margin-top: -2%;
-    margin-left: 8%;
+    margin-left: 10%;
     float: left;
 }
 #login input[type=password], input[type=text]{ /*  */
-     width: 200%;
+     width: 170%;
     padding: 3%;
-    margin-bottom: 10%;
-
-
+    margin-bottom: 8%;
 }
-
+.signup{
+    background-image: url("http://localhost/wp-content/uploads/2020/05/MusicStaff-e1590908746168.png");
+    background-position: top;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    width: 80%;
+    margin-right: -5%;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    color: white;
+    float: right;
+    overflow-x: hidden;
+    text-align: center;
+    font-size: 180%;
+}
+.signup img{
+    float: right;
+}
+.signup p{
+    margin-top: -8%;
+    font-size: 200%;
+}
 #login label{
     font-size: 150%;
 }
 #login input[type=submit]{
     margin: 2% 0 2% 2%;
-    background-color: #A7414A;
+    background-color: #F9D342;
     border: none;
     color: white;
-    padding: 6% 20%;
+    padding: 8% 24%;
     text-align: center;
     text-decoration: none;
     display: inline-block;

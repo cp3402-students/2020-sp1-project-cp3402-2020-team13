@@ -21,8 +21,8 @@ get_header();
 <body>
 <div class="landing-header">
     The Best entertainment in Townsville<br>
-    <button>Sign Up</button>
-    <button>See our Events</button>
+    <button onclick="location.href = 'http://localhost/wp-login.php';">Sign Up</button>
+    <button onclick="location.href = 'http://localhost/events';">See our Events</button>
 </div>
 <div class="description-container">
     <div class="description-header">
