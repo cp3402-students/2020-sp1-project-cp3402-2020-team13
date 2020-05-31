@@ -1528,3 +1528,80 @@ width: 200px;
     margin-left: 12%;
     font-size: 300%;
 }
+#slideshow {
+    font-size: 50%;
+    float: left;
+    margin-top: 2%;
+    margin-left: 8%;
+    overflow: hidden;
+    height: 610px;
+    width: 610px;
+    border-radius: 5px;
+}
+
+.slide-wrapper {
+    width: 2912px;
+    -webkit-animation: slide 18s ease infinite;
+}
+
+.slide {
+    float: left;
+    height: 610px;
+    width: 610px;
+}
+.slide h1{
+    margin-left: 6%;
+    font-size: 300%;
+    float: left;
+}
+.slide:nth-child(1) {
+    background: #D93B65;
+}
+
+.slide-number {
+    color: white;
+    text-align: center;
+    font-size: 10em;
+}
+
+@-webkit-keyframes slide {
+    20% {margin-left: 0px;}
+    30% {margin-left: -100%;}
+    50% {margin-left: -100%;}
+    60% {margin-left: -200%;}
+    70% {margin-left: -200%;}
+    80% {margin-left: -300%;}
+    90% {margin-left: -300%;}
+}
+.bands-header{
+    font-size: 180%;
+    color: #F9D342;
+    font-family: 'Patua One', cursive;
+    margin-left: 1.5%;
+    margin-top: 5%;
+    float: left;
+    width: 40%;
+
+}
+.bands-header p{
+    color: white;
+    font-size: 80%;
+}
+.history-header {
+    font-size: 130%;
+    float: left;
+    margin-left: 8%;
+   margin-top: 1%;
+}
+.history-header h1{
+    font-family: 'Patua One', cursive;
+    color: #F9D342;
+}
+.history-header h3{
+    font-family: 'Patua One', cursive;
+    color: #F9D342;
+}
+.history-header p{
+    color: white;
+    margin-right: 8%;
+}
