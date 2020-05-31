@@ -989,7 +989,7 @@ object {
 
 .site-nav {
     margin-top: -1.5%;
-    width: 50%;
+    width: 55%;
     float: right;
     color: white;
 
@@ -1019,6 +1019,7 @@ object {
 }
 
 .site-nav li a:hover {
+    color: black;
     text-decoration: none;
 }
 
@@ -1107,6 +1108,7 @@ border: 2px solid #F9D342;
 }
 
 .media-player {
+    margin-top: -0.65%;
     cursor: pointer;
     font-size: 110%;
     background-color: #F9D342;
@@ -1588,6 +1590,7 @@ width: 200px;
     font-size: 80%;
 }
 .history-header {
+
     font-size: 130%;
     float: left;
     margin-left: 8%;
@@ -1604,4 +1607,11 @@ width: 200px;
 .history-header p{
     color: white;
     margin-right: 8%;
+}
+.single {
+    float: left;
+}
+.single p {
+    float: right;
+    text-align: left;
 }

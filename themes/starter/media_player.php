@@ -4,7 +4,7 @@
             type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
-<li onclick="playAudio()" type="button" class="media-player">Play Audio</li>
+<li onclick="playAudio()" type="button" class="media-player">Play Sample</li>
 
 <script>
     var x = document.getElementById("myAudio");

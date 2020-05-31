@@ -36,6 +36,7 @@ $posts = get_posts($args);
 </div>
 <div class="history-header">
     <h1>Jazz Club History</h1>
+    <div class="background-container">
     <h3>Harbour End Jazz Club</h3>
     <p>Whilst jazz music had been played in Townsville long before the Harbour End Jazz Club was formed in 1980,
         there had not been a recognised venue where jazz was performed for about twenty years.
@@ -62,5 +63,6 @@ $posts = get_posts($args);
         I don’t think anyone would begrudge Nev the honour of gracing the Townsville Jazz Club logo.  It was clear that Nev was very touched by the occasion and he and
         his wife Christine were delighted with the image that was created through Bob Spillane’s photography and the artistry of Katrina Cataldo at Townprint.
     </p>
+    </div>
 </div>
 </html>
