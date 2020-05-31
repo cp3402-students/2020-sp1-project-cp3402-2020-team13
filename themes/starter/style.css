@@ -1031,6 +1031,7 @@ object {
 #nav-container {
     color: white;
     background-color: #282726;
+    width: 100%;
 }
 
 .header-image {
@@ -1412,38 +1413,6 @@ width: 200px;
     transition: 0.5s;
 }
 
-.container {
-    margin-top: 2%;
-
-    position: relative;
-    width: 20%;
-}
-
-.image {
-    margin-top: 10%;
-    border-radius: 5px;
-    display: block;
-    width: 70%;
-    height: auto;
-}
-
-.overlay {
-    border-radius: 5px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #008CBA;
-    overflow: hidden;
-    width: 70%;
-    height: 0;
-    transition: .5s ease;
-}
-
-.container:hover .overlay {
-    height: 100%;
-}
-
 .text {
     color: white;
     font-size: 20px;
@@ -1556,9 +1525,6 @@ width: 200px;
     font-size: 300%;
     float: left;
 }
-.slide:nth-child(1) {
-    background: #D93B65;
-}
 
 .slide-number {
     color: white;
@@ -1608,10 +1574,40 @@ width: 200px;
     color: white;
     margin-right: 8%;
 }
-.single {
-    float: left;
+.band{
+    margin-top: 3%;
+    font-size: 130%;
+    margin-left: 8%;
 }
-.single p {
+.band img{
+    float: left;
+    width: 40%;
+    height: auto;
+}
+.band h1{
+
+    font-family: 'Patua One', cursive;
+    color: #F9D342;
     float: right;
-    text-align: left;
+    margin-right: 23%;
+    margin-top: -27%;
+}
+.band p{
+    color: white;
+    float: left;
+    margin-right: 10%;
+    margin-left: 42%;
+    margin-top: -22%;
+}
+.band h3{
+    font-family: 'Patua One', cursive;
+    color: #F9D342;
+    float: right;
+    margin-right: 52%;
+    margin-top: -9%;
+}
+.members {
+    color: white;
+    margin-left: 42%;
+    padding-top: 21%;
 }

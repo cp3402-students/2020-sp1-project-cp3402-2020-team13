@@ -1,26 +1,20 @@
 <?php
 /**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package Townsville_Jazz_club
+ * Template
  */
 
 
-$title=get_the_title();
+$title = get_the_title();
+$members = get_field("members");
+$image = get_field("main_image");
+$description = get_field("description");
 get_header();
-$content=the_content();
 ?>
-<html>
-<div class="single">
-    <h1><?php echo $title?></h1>
-    <P><?php if ( have_posts() ) : while ( have_posts() ) : the_post();
-    the_content();
-endwhile; else: ?></P>
-</div>
+    <div >
+        <img src="<?php echo $image ?>">
+        <h1><?php echo $title ?></h1>
 
-</html>
+    </div>
 <?php
 get_footer();
-endif;
+

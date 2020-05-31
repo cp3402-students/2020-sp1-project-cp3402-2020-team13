@@ -16,9 +16,6 @@ get_header();
 
     <div class="contact_page_container">
 
-
-
-
     <div class="contact_page_text_container">
 
               <h1>Come Check us out at our two locations</h1>
