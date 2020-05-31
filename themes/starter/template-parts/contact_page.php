@@ -14,7 +14,7 @@ get_header();
 
   <body>
 
-    <div class="contact_page_container">
+    <div class="page_container">
 
     <div class="contact_page_text_container">
 
@@ -36,8 +36,9 @@ get_header();
 
         </div>
 
-      </div>
 
+
+  <div class="contact_page_text_container">
 
 
 
